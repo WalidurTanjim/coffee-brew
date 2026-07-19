@@ -1,0 +1,191 @@
+[
+     {
+          "name": "Colombian Supremo Excelso",
+          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
+          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
+          "type": "Single Origin",
+          "roast_level": "Medium",
+          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
+          "stock": 120,
+          "variants": [
+               { "weight": "250g", "price": 12.50, "stock": 50 },
+               { "weight": "500g", "price": 22.75, "stock": 40 },
+               { "weight": "1kg", "price": 39.99, "stock": 30 }
+          ],
+          "created_at": "2026-07-18T14:20:00Z",
+          "updated_at": "2026-07-19T11:00:00Z",
+          "author": {
+               "name": "Sofia Martinez",
+               "email": "sofia@colombiancoffee.com"
+          },
+          "origin": "Colombia, Huila Region",
+          "altitude": "1500-1800m",
+          "processing": "Washed",
+          "brew_suggestions": ["Espresso", "French Press", "Drip"],
+          "is_organic": false,
+          "rating": 4.6,
+          "decaf": false
+     },
+     {
+          "name": "Colombian Supremo Excelso",
+          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
+          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
+          "type": "Single Origin",
+          "roast_level": "Medium",
+          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
+          "stock": 120,
+          "variants": [
+               { "weight": "250g", "price": 12.50, "stock": 50 },
+               { "weight": "500g", "price": 22.75, "stock": 40 },
+               { "weight": "1kg", "price": 39.99, "stock": 30 }
+          ],
+          "created_at": "2026-07-18T14:20:00Z",
+          "updated_at": "2026-07-19T11:00:00Z",
+          "author": {
+               "name": "Sofia Martinez",
+               "email": "sofia@colombiancoffee.com"
+          },
+          "origin": "Colombia, Huila Region",
+          "altitude": "1500-1800m",
+          "processing": "Washed",
+          "brew_suggestions": ["Espresso", "French Press", "Drip"],
+          "is_organic": false,
+          "rating": 4.6,
+          "decaf": false
+     },
+     {
+          "name": "Colombian Supremo Excelso",
+          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
+          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
+          "type": "Single Origin",
+          "roast_level": "Medium",
+          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
+          "stock": 120,
+          "variants": [
+               { "weight": "250g", "price": 12.50, "stock": 50 },
+               { "weight": "500g", "price": 22.75, "stock": 40 },
+               { "weight": "1kg", "price": 39.99, "stock": 30 }
+          ],
+          "created_at": "2026-07-18T14:20:00Z",
+          "updated_at": "2026-07-19T11:00:00Z",
+          "author": {
+               "name": "Sofia Martinez",
+               "email": "sofia@colombiancoffee.com"
+          },
+          "origin": "Colombia, Huila Region",
+          "altitude": "1500-1800m",
+          "processing": "Washed",
+          "brew_suggestions": ["Espresso", "French Press", "Drip"],
+          "is_organic": false,
+          "rating": 4.6,
+          "decaf": false
+     },
+     {
+          "name": "Colombian Supremo Excelso",
+          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
+          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
+          "type": "Single Origin",
+          "roast_level": "Medium",
+          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
+          "stock": 120,
+          "variants": [
+               { "weight": "250g", "price": 12.50, "stock": 50 },
+               { "weight": "500g", "price": 22.75, "stock": 40 },
+               { "weight": "1kg", "price": 39.99, "stock": 30 }
+          ],
+          "created_at": "2026-07-18T14:20:00Z",
+          "updated_at": "2026-07-19T11:00:00Z",
+          "author": {
+               "name": "Sofia Martinez",
+               "email": "sofia@colombiancoffee.com"
+          },
+          "origin": "Colombia, Huila Region",
+          "altitude": "1500-1800m",
+          "processing": "Washed",
+          "brew_suggestions": ["Espresso", "French Press", "Drip"],
+          "is_organic": false,
+          "rating": 4.6,
+          "decaf": false
+     },
+     {
+          "name": "Colombian Supremo Excelso",
+          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
+          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
+          "type": "Single Origin",
+          "roast_level": "Medium",
+          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
+          "stock": 120,
+          "variants": [
+               { "weight": "250g", "price": 12.50, "stock": 50 },
+               { "weight": "500g", "price": 22.75, "stock": 40 },
+               { "weight": "1kg", "price": 39.99, "stock": 30 }
+          ],
+          "created_at": "2026-07-18T14:20:00Z",
+          "updated_at": "2026-07-19T11:00:00Z",
+          "author": {
+               "name": "Sofia Martinez",
+               "email": "sofia@colombiancoffee.com"
+          },
+          "origin": "Colombia, Huila Region",
+          "altitude": "1500-1800m",
+          "processing": "Washed",
+          "brew_suggestions": ["Espresso", "French Press", "Drip"],
+          "is_organic": false,
+          "rating": 4.6,
+          "decaf": false
+     },
+     {
+          "name": "Colombian Supremo Excelso",
+          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
+          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
+          "type": "Single Origin",
+          "roast_level": "Medium",
+          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
+          "stock": 120,
+          "variants": [
+               { "weight": "250g", "price": 12.50, "stock": 50 },
+               { "weight": "500g", "price": 22.75, "stock": 40 },
+               { "weight": "1kg", "price": 39.99, "stock": 30 }
+          ],
+          "created_at": "2026-07-18T14:20:00Z",
+          "updated_at": "2026-07-19T11:00:00Z",
+          "author": {
+               "name": "Sofia Martinez",
+               "email": "sofia@colombiancoffee.com"
+          },
+          "origin": "Colombia, Huila Region",
+          "altitude": "1500-1800m",
+          "processing": "Washed",
+          "brew_suggestions": ["Espresso", "French Press", "Drip"],
+          "is_organic": false,
+          "rating": 4.6,
+          "decaf": false
+     },
+     {
+          "name": "Colombian Supremo Excelso",
+          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
+          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
+          "type": "Single Origin",
+          "roast_level": "Medium",
+          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
+          "stock": 120,
+          "variants": [
+               { "weight": "250g", "price": 12.50, "stock": 50 },
+               { "weight": "500g", "price": 22.75, "stock": 40 },
+               { "weight": "1kg", "price": 39.99, "stock": 30 }
+          ],
+          "created_at": "2026-07-18T14:20:00Z",
+          "updated_at": "2026-07-19T11:00:00Z",
+          "author": {
+               "name": "Sofia Martinez",
+               "email": "sofia@colombiancoffee.com"
+          },
+          "origin": "Colombia, Huila Region",
+          "altitude": "1500-1800m",
+          "processing": "Washed",
+          "brew_suggestions": ["Espresso", "French Press", "Drip"],
+          "is_organic": false,
+          "rating": 4.6,
+          "decaf": false
+     }
+]
