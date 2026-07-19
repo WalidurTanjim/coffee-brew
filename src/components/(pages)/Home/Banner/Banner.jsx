@@ -3,7 +3,7 @@ import Image from "next/image";
 const Banner = () => {
      return (
           <div className='banner relative w-full h-[70vh] overflow-hidden'>
-               <Image alt="Banner image" src={`/assets/images/banner/banner.jpg`} width={1000} height={550} className="w-full h-[550px]" />
+               <Image alt="Banner image" src={`/assets/images/banner/banner.jpg`} width={1000} height={550} className="w-full h-137.5" />
 
                <div className="absolute inset-0 bg-black/20" />
 
