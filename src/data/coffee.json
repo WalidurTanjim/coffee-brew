@@ -1,191 +1,272 @@
 [
-     {
-          "name": "Colombian Supremo Excelso",
-          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
-          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
-          "type": "Single Origin",
-          "roast_level": "Medium",
-          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
-          "stock": 120,
-          "variants": [
-               { "weight": "250g", "price": 12.50, "stock": 50 },
-               { "weight": "500g", "price": 22.75, "stock": 40 },
-               { "weight": "1kg", "price": 39.99, "stock": 30 }
-          ],
-          "created_at": "2026-07-18T14:20:00Z",
-          "updated_at": "2026-07-19T11:00:00Z",
-          "author": {
-               "name": "Sofia Martinez",
-               "email": "sofia@colombiancoffee.com"
-          },
-          "origin": "Colombia, Huila Region",
-          "altitude": "1500-1800m",
-          "processing": "Washed",
-          "brew_suggestions": ["Espresso", "French Press", "Drip"],
-          "is_organic": false,
-          "rating": 4.6,
-          "decaf": false
-     },
-     {
-          "name": "Colombian Supremo Excelso",
-          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
-          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
-          "type": "Single Origin",
-          "roast_level": "Medium",
-          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
-          "stock": 120,
-          "variants": [
-               { "weight": "250g", "price": 12.50, "stock": 50 },
-               { "weight": "500g", "price": 22.75, "stock": 40 },
-               { "weight": "1kg", "price": 39.99, "stock": 30 }
-          ],
-          "created_at": "2026-07-18T14:20:00Z",
-          "updated_at": "2026-07-19T11:00:00Z",
-          "author": {
-               "name": "Sofia Martinez",
-               "email": "sofia@colombiancoffee.com"
-          },
-          "origin": "Colombia, Huila Region",
-          "altitude": "1500-1800m",
-          "processing": "Washed",
-          "brew_suggestions": ["Espresso", "French Press", "Drip"],
-          "is_organic": false,
-          "rating": 4.6,
-          "decaf": false
-     },
-     {
-          "name": "Colombian Supremo Excelso",
-          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
-          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
-          "type": "Single Origin",
-          "roast_level": "Medium",
-          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
-          "stock": 120,
-          "variants": [
-               { "weight": "250g", "price": 12.50, "stock": 50 },
-               { "weight": "500g", "price": 22.75, "stock": 40 },
-               { "weight": "1kg", "price": 39.99, "stock": 30 }
-          ],
-          "created_at": "2026-07-18T14:20:00Z",
-          "updated_at": "2026-07-19T11:00:00Z",
-          "author": {
-               "name": "Sofia Martinez",
-               "email": "sofia@colombiancoffee.com"
-          },
-          "origin": "Colombia, Huila Region",
-          "altitude": "1500-1800m",
-          "processing": "Washed",
-          "brew_suggestions": ["Espresso", "French Press", "Drip"],
-          "is_organic": false,
-          "rating": 4.6,
-          "decaf": false
-     },
-     {
-          "name": "Colombian Supremo Excelso",
-          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
-          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
-          "type": "Single Origin",
-          "roast_level": "Medium",
-          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
-          "stock": 120,
-          "variants": [
-               { "weight": "250g", "price": 12.50, "stock": 50 },
-               { "weight": "500g", "price": 22.75, "stock": 40 },
-               { "weight": "1kg", "price": 39.99, "stock": 30 }
-          ],
-          "created_at": "2026-07-18T14:20:00Z",
-          "updated_at": "2026-07-19T11:00:00Z",
-          "author": {
-               "name": "Sofia Martinez",
-               "email": "sofia@colombiancoffee.com"
-          },
-          "origin": "Colombia, Huila Region",
-          "altitude": "1500-1800m",
-          "processing": "Washed",
-          "brew_suggestions": ["Espresso", "French Press", "Drip"],
-          "is_organic": false,
-          "rating": 4.6,
-          "decaf": false
-     },
-     {
-          "name": "Colombian Supremo Excelso",
-          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
-          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
-          "type": "Single Origin",
-          "roast_level": "Medium",
-          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
-          "stock": 120,
-          "variants": [
-               { "weight": "250g", "price": 12.50, "stock": 50 },
-               { "weight": "500g", "price": 22.75, "stock": 40 },
-               { "weight": "1kg", "price": 39.99, "stock": 30 }
-          ],
-          "created_at": "2026-07-18T14:20:00Z",
-          "updated_at": "2026-07-19T11:00:00Z",
-          "author": {
-               "name": "Sofia Martinez",
-               "email": "sofia@colombiancoffee.com"
-          },
-          "origin": "Colombia, Huila Region",
-          "altitude": "1500-1800m",
-          "processing": "Washed",
-          "brew_suggestions": ["Espresso", "French Press", "Drip"],
-          "is_organic": false,
-          "rating": 4.6,
-          "decaf": false
-     },
-     {
-          "name": "Colombian Supremo Excelso",
-          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
-          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
-          "type": "Single Origin",
-          "roast_level": "Medium",
-          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
-          "stock": 120,
-          "variants": [
-               { "weight": "250g", "price": 12.50, "stock": 50 },
-               { "weight": "500g", "price": 22.75, "stock": 40 },
-               { "weight": "1kg", "price": 39.99, "stock": 30 }
-          ],
-          "created_at": "2026-07-18T14:20:00Z",
-          "updated_at": "2026-07-19T11:00:00Z",
-          "author": {
-               "name": "Sofia Martinez",
-               "email": "sofia@colombiancoffee.com"
-          },
-          "origin": "Colombia, Huila Region",
-          "altitude": "1500-1800m",
-          "processing": "Washed",
-          "brew_suggestions": ["Espresso", "French Press", "Drip"],
-          "is_organic": false,
-          "rating": 4.6,
-          "decaf": false
-     },
-     {
-          "name": "Colombian Supremo Excelso",
-          "image": "https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=600",
-          "description": "Smooth and well-balanced medium roast from the Andes mountains. Features a rich caramel sweetness with a hint of nutty aftertaste. Perfect for everyday espresso or drip coffee.",
-          "type": "Single Origin",
-          "roast_level": "Medium",
-          "flavor_notes": ["Caramel", "Walnut", "Milk Chocolate", "Citrus Brightness"],
-          "stock": 120,
-          "variants": [
-               { "weight": "250g", "price": 12.50, "stock": 50 },
-               { "weight": "500g", "price": 22.75, "stock": 40 },
-               { "weight": "1kg", "price": 39.99, "stock": 30 }
-          ],
-          "created_at": "2026-07-18T14:20:00Z",
-          "updated_at": "2026-07-19T11:00:00Z",
-          "author": {
-               "name": "Sofia Martinez",
-               "email": "sofia@colombiancoffee.com"
-          },
-          "origin": "Colombia, Huila Region",
-          "altitude": "1500-1800m",
-          "processing": "Washed",
-          "brew_suggestions": ["Espresso", "French Press", "Drip"],
-          "is_organic": false,
-          "rating": 4.6,
-          "decaf": false
-     }
+  {
+    "name": "Geisha (or Gesha)",
+    "image": "https://i.ibb.co.com/35FT6Mxg/geisha.webp",
+    "description": "Geisha is famous for its exceptional, tea-like body and intense floral and jasmine aromas, often accompanied by bright citrus and peach notes . The variety shot to fame when a Panamanian farm, Hacienda La Esmeralda, entered it into the Best of Panama competition in 2004, setting record auction prices",
+    "type": "Single Origin",
+    "roast_level": "Light",
+    "flavor_notes": ["Jasmine", "Bergamot", "Peach", "Honey", "Citrus"],
+    "stock": 120,
+    "variants": [
+      { "weight": "250g", "price": 12.50, "stock": 50 },
+      { "weight": "500g", "price": 22.75, "stock": 40 },
+      { "weight": "1kg", "price": 39.99, "stock": 30 }
+    ],
+    "created_at": "2026-07-18T14:20:00Z",
+    "updated_at": "2026-07-19T11:00:00Z",
+    "author": {
+      "name": "Sofia Martinez",
+      "email": "sofia@colombiancoffee.com"
+    },
+    "origin": "Panama, Boquete Region",
+    "altitude": "1500-1800m",
+    "processing": "Washed",
+    "brew_suggestions": ["Pour Over", "Chemex", "Siphon"],
+    "is_organic": true,
+    "rating": 4.6,
+    "decaf": false
+  },
+  {
+    "name": "Bourbon",
+    "image": "https://i.ibb.co.com/v47JBT99/bourbon.jpg",
+    "description": "One of the most culturally and genetically important Arabica varieties, Bourbon is known for its balanced and sweet flavor profile, often with notes of caramel and a bright, clean acidity . It originated on the island of Bourbon (now R\u00e9union) and is a natural mutation of the Typica variety.",
+    "type": "Single Origin",
+    "roast_level": "Medium",
+    "flavor_notes": ["Caramel", "Milk Chocolate", "Almond", "Red Apple"],
+    "stock": 120,
+    "variants": [
+      { "weight": "250g", "price": 12.50, "stock": 50 },
+      { "weight": "500g", "price": 22.75, "stock": 40 },
+      { "weight": "1kg", "price": 39.99, "stock": 30 }
+    ],
+    "created_at": "2026-07-18T14:20:00Z",
+    "updated_at": "2026-07-19T11:00:00Z",
+    "author": {
+      "name": "Sofia Martinez",
+      "email": "sofia@colombiancoffee.com"
+    },
+    "origin": "Brazil, Minas Gerais",
+    "altitude": "1000-1200m",
+    "processing": "Natural",
+    "brew_suggestions": ["Espresso", "French Press", "Drip"],
+    "is_organic": false,
+    "rating": 4.6,
+    "decaf": false
+  },
+  {
+    "name": "Typica",
+    "image": "https://i.ibb.co.com/BDT0VFd/typica.webp",
+    "description": "As one of the first coffee varieties to be cultivated outside of Ethiopia and Yemen, Typica is a foundational variety for many others . It is known for producing a clean, classic cup with good acidity and a sweet, delicate flavor. The famous Jamaican Blue Mountain is genetically identical to Typica .",
+    "type": "Single Origin",
+    "roast_level": "Medium",
+    "flavor_notes": ["Honey", "Milk Chocolate", "Green Apple", "Toasted Nuts"],
+    "stock": 120,
+    "variants": [
+      { "weight": "250g", "price": 12.50, "stock": 50 },
+      { "weight": "500g", "price": 22.75, "stock": 40 },
+      { "weight": "1kg", "price": 39.99, "stock": 30 }
+    ],
+    "created_at": "2026-07-18T14:20:00Z",
+    "updated_at": "2026-07-19T11:00:00Z",
+    "author": {
+      "name": "Sofia Martinez",
+      "email": "sofia@colombiancoffee.com"
+    },
+    "origin": "Jamaica, Blue Mountain Region",
+    "altitude": "900-1500m",
+    "processing": "Washed",
+    "brew_suggestions": ["Drip", "Pour Over", "Espresso"],
+    "is_organic": false,
+    "rating": 4.6,
+    "decaf": false
+  },
+  {
+    "name": "SL28 & SL34",
+    "image": "https://i.ibb.co.com/60M7NW2W/lilies.webp",
+    "description": "These are two of the most famous varieties from Kenya, selected by the Scott Agricultural Laboratories in the 1930s . SL28 is renowned for its complex, wine-like acidity and intense, fruity flavor profiles, often with notes of blackcurrant, while SL34 has a fuller body and a deeper, more savory character .",
+    "type": "Single Origin",
+    "roast_level": "Medium-Light",
+    "flavor_notes": ["Blackcurrant", "Citrus", "Tomato", "Winey Acidity", "Dark Chocolate"],
+    "stock": 120,
+    "variants": [
+      { "weight": "250g", "price": 12.50, "stock": 50 },
+      { "weight": "500g", "price": 22.75, "stock": 40 },
+      { "weight": "1kg", "price": 39.99, "stock": 30 }
+    ],
+    "created_at": "2026-07-18T14:20:00Z",
+    "updated_at": "2026-07-19T11:00:00Z",
+    "author": {
+      "name": "Sofia Martinez",
+      "email": "sofia@colombiancoffee.com"
+    },
+    "origin": "Kenya, Nyeri Region",
+    "altitude": "1600-1900m",
+    "processing": "Washed",
+    "brew_suggestions": ["Pour Over", "AeroPress", "Chemex"],
+    "is_organic": false,
+    "rating": 4.6,
+    "decaf": false
+  },
+  {
+    "name": "Pacamara",
+    "image": "https://i.ibb.co.com/rKhCJr3z/pacamara.jpg",
+    "description": "A hybrid of the Pacas and Maragogipe varieties, Pacamara is known for its giant beans and exceptional cup quality . It can produce a complex and unique cup with intense fruity and floral notes, but it is very susceptible to coffee leaf rust and is a challenge to cultivate .",
+    "type": "Single Origin",
+    "roast_level": "Light-Medium",
+    "flavor_notes": ["Tropical Fruit", "Floral", "Cherry", "Honey", "Cocoa Nibs"],
+    "stock": 120,
+    "variants": [
+      { "weight": "250g", "price": 12.50, "stock": 50 },
+      { "weight": "500g", "price": 22.75, "stock": 40 },
+      { "weight": "1kg", "price": 39.99, "stock": 30 }
+    ],
+    "created_at": "2026-07-18T14:20:00Z",
+    "updated_at": "2026-07-19T11:00:00Z",
+    "author": {
+      "name": "Sofia Martinez",
+      "email": "sofia@colombiancoffee.com"
+    },
+    "origin": "El Salvador, Santa Ana Region",
+    "altitude": "1300-1600m",
+    "processing": "Washed",
+    "brew_suggestions": ["Pour Over", "Espresso", "Siphon"],
+    "is_organic": true,
+    "rating": 4.6,
+    "decaf": false
+  },
+  {
+    "name": "Caturra",
+    "image": "https://i.ibb.co.com/cX8sJg8j/caturra.jpg",
+    "description": "A natural mutation of Bourbon, Caturra is a dwarf or compact variety that is easier to harvest . It is widely grown in Central and South America and is known for its good cup quality with a bright, clean acidity, though it remains highly susceptible to coffee leaf rust .",
+    "type": "Single Origin",
+    "roast_level": "Medium",
+    "flavor_notes": ["Citrus", "Brown Sugar", "Caramel", "Cocoa"],
+    "stock": 120,
+    "variants": [
+      { "weight": "250g", "price": 12.50, "stock": 50 },
+      { "weight": "500g", "price": 22.75, "stock": 40 },
+      { "weight": "1kg", "price": 39.99, "stock": 30 }
+    ],
+    "created_at": "2026-07-18T14:20:00Z",
+    "updated_at": "2026-07-19T11:00:00Z",
+    "author": {
+      "name": "Sofia Martinez",
+      "email": "sofia@colombiancoffee.com"
+    },
+    "origin": "Costa Rica, Tarrazu Region",
+    "altitude": "1200-1500m",
+    "processing": "Washed",
+    "brew_suggestions": ["Drip", "Pour Over", "Espresso"],
+    "is_organic": true,
+    "rating": 4.6,
+    "decaf": false
+  },
+  {
+    "name": "Mundo Novo",
+    "image": "https://i.ibb.co.com/YTQ6fYB1/mundo-novo.jpg",
+    "description": "A natural hybrid of Bourbon and Typica, Mundo Novo is a vigorous and productive plant known for its good cup quality . It is grown widely in South America, particularly in Brazil, where it is valued for its adaptability and balanced flavor profile .",
+    "type": "Single Origin",
+    "roast_level": "Medium-Dark",
+    "flavor_notes": ["Dark Chocolate", "Hazelnut", "Caramel", "Spice"],
+    "stock": 120,
+    "variants": [
+      { "weight": "250g", "price": 12.50, "stock": 50 },
+      { "weight": "500g", "price": 22.75, "stock": 40 },
+      { "weight": "1kg", "price": 39.99, "stock": 30 }
+    ],
+    "created_at": "2026-07-18T14:20:00Z",
+    "updated_at": "2026-07-19T11:00:00Z",
+    "author": {
+      "name": "Sofia Martinez",
+      "email": "sofia@colombiancoffee.com"
+    },
+    "origin": "Brazil, Cerrado Region",
+    "altitude": "800-1100m",
+    "processing": "Natural",
+    "brew_suggestions": ["Espresso", "French Press", "Drip"],
+    "is_organic": false,
+    "rating": 4.6,
+    "decaf": false
+  },
+  {
+    "name": "Java",
+    "image": "https://i.ibb.co.com/s9L8QY2G/java.webp",
+    "description": "The Java variety has an interesting history, as it is a selection from Ethiopian landraces . Despite its name, it is a high-quality Arabica that is known for its resistance to coffee leaf rust and ability to produce a good cup quality, making it a valuable choice for farmers .",
+    "type": "Single Origin",
+    "roast_level": "Medium",
+    "flavor_notes": ["Cedar", "Dark Chocolate", "Spice", "Honey"],
+    "stock": 120,
+    "variants": [
+      { "weight": "250g", "price": 12.50, "stock": 50 },
+      { "weight": "500g", "price": 22.75, "stock": 40 },
+      { "weight": "1kg", "price": 39.99, "stock": 30 }
+    ],
+    "created_at": "2026-07-18T14:20:00Z",
+    "updated_at": "2026-07-19T11:00:00Z",
+    "author": {
+      "name": "Sofia Martinez",
+      "email": "sofia@colombiancoffee.com"
+    },
+    "origin": "Indonesia, Sumatra Region",
+    "altitude": "900-1200m",
+    "processing": "Semi-Washed",
+    "brew_suggestions": ["French Press", "Espresso", "Cold Brew"],
+    "is_organic": true,
+    "rating": 4.6,
+    "decaf": false
+  },
+  {
+    "name": "Batian",
+    "image": "https://i.ibb.co.com/hRc1C0hW/batian.jpg",
+    "description": "A modern hybrid variety developed in Kenya, Batian is a tall plant that combines high yields with resistance to coffee leaf rust and coffee berry disease . It is also known for its good cup quality, making it a reliable and profitable choice for farmers .",
+    "type": "Single Origin",
+    "roast_level": "Medium",
+    "flavor_notes": ["Black Tea", "Citrus", "Cocoa", "Berries", "Honey"],
+    "stock": 120,
+    "variants": [
+      { "weight": "250g", "price": 12.50, "stock": 50 },
+      { "weight": "500g", "price": 22.75, "stock": 40 },
+      { "weight": "1kg", "price": 39.99, "stock": 30 }
+    ],
+    "created_at": "2026-07-18T14:20:00Z",
+    "updated_at": "2026-07-19T11:00:00Z",
+    "author": {
+      "name": "Sofia Martinez",
+      "email": "sofia@colombiancoffee.com"
+    },
+    "origin": "Kenya, Kiambu Region",
+    "altitude": "1500-1800m",
+    "processing": "Washed",
+    "brew_suggestions": ["Pour Over", "AeroPress", "Drip"],
+    "is_organic": false,
+    "rating": 4.6,
+    "decaf": false
+  },
+  {
+    "name": "Kent",
+    "image": "https://i.ibb.co.com/JRWYhYpy/kent.png",
+    "description": "One of the earliest known rust-resistant selections, the Kent variety was discovered in India in 1911 from a single Typica tree . It became popular in several British colonies and is a key genetic contributor to other cultivars, though its original rust resistance has diminished over time .",
+    "type": "Single Origin",
+    "roast_level": "Medium-Dark",
+    "flavor_notes": ["Brown Sugar", "Cocoa", "Nutmeg", "Caramel", "Molasses"],
+    "stock": 120,
+    "variants": [
+      { "weight": "250g", "price": 12.50, "stock": 50 },
+      { "weight": "500g", "price": 22.75, "stock": 40 },
+      { "weight": "1kg", "price": 39.99, "stock": 30 }
+    ],
+    "created_at": "2026-07-18T14:20:00Z",
+    "updated_at": "2026-07-19T11:00:00Z",
+    "author": {
+      "name": "Sofia Martinez",
+      "email": "sofia@colombiancoffee.com"
+    },
+    "origin": "India, Chikmagalur Region",
+    "altitude": "800-1100m",
+    "processing": "Washed",
+    "brew_suggestions": ["Drip", "Espresso", "Pour Over"],
+    "is_organic": false,
+    "rating": 4.6,
+    "decaf": false
+  }
 ]
