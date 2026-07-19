@@ -18,16 +18,16 @@ const Footer = () => {
 
                                    <ul>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Features</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Features</Link>
                                         </li>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Customers</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Customers</Link>
                                         </li>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Why us?</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Why us?</Link>
                                         </li>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Pricing</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Pricing</Link>
                                         </li>
                                    </ul>
                               </nav>
@@ -37,23 +37,23 @@ const Footer = () => {
 
                                    <ul>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Documentation</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Documentation</Link>
                                         </li>
 
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Training</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Training</Link>
                                         </li>
 
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">System status</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">System status</Link>
                                         </li>
 
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">FAQ's</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">FAQ's</Link>
                                         </li>
 
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Help Center</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Help Center</Link>
                                         </li>
                                    </ul>
                               </nav>
@@ -63,38 +63,38 @@ const Footer = () => {
                                    
                                    <ul>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">About us</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">About us</Link>
                                         </li>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Careers</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Careers</Link>
                                         </li>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Leadership</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Leadership</Link>
                                         </li>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Blog</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Blog</Link>
                                         </li>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Events</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Events</Link>
                                         </li>
                                    </ul>
                               </nav>
-                              
+
                               <nav className="col-span-2 md:col-span-4 lg:col-span-3" aria-labelledby="footer-get-in-touch-4-sub">
                                    <h3 className="mb-6 text-base font-medium text-slate-700" id="footer-get-in-touch-4-sub">Get in touch</h3>
 
                                    <ul>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Contact</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Contact</Link>
                                         </li>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Support</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Support</Link>
                                         </li>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Partners</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Partners</Link>
                                         </li>
                                         <li className="mb-2 leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Join research</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Join research</Link>
                                         </li>
                                    </ul>
                               </nav>
@@ -106,7 +106,7 @@ const Footer = () => {
                <div className="border-t border-slate-200 bg-slate-100 py-4 text-sm">
                     <div className="mx-auto max-w-7xl px-2 sm:px-5 lg:px-8">
                          <div className="grid grid-cols-4 items-center gap-6 md:grid-cols-8 lg:grid-cols-12">
-                              <Link id="WindUI-4-sub" aria-label="WindUI logo" aria-current="page" className="col-span-1 flex items-center gap-2 whitespace-nowrap text-base font-medium leading-6 focus:outline-none md:col-span-4 lg:col-span-6" href="javascript:void(0)">
+                              <Link id="WindUI-4-sub" aria-label="WindUI logo" aria-current="page" className="col-span-1 flex items-center gap-2 whitespace-nowrap text-base font-medium leading-6 focus:outline-none md:col-span-4 lg:col-span-6" href="/">
                                    <BuildingOfficeIcon className="h-6 w-6 shrink-0 text-emerald-500" />Brand</Link>
 
                               <nav className="col-span-3 md:col-span-4 lg:col-span-6" aria-labelledby="subfooter-links-3-sub">
@@ -114,15 +114,15 @@ const Footer = () => {
 
                                    <ul className="flex flex-wrap items-center justify-end gap-2 lg:gap-4">
                                         <li className="leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">T&C</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">T&C</Link>
                                         </li>
 
                                         <li className="leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Privacy</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Privacy</Link>
                                         </li>
 
                                         <li className="leading-6">
-                                             <Link href="javascript:void(0)" className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600">Cookies</Link>
+                                             <Link href="/" className="transition-colors duration-300 hover:text-slate-800 focus:text-slate-500">Cookies</Link>
                                         </li>
                                    </ul>
                               </nav>
