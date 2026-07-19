@@ -1,7 +1,10 @@
+import { getAllCoffee } from "@/actions/server/coffee"
 import CoffeeCard from "@/components/cards/CoffeeCard/CoffeeCard"
-import coffees from "@/data/coffee.json"
 
-const CoffeePage = () => {
+const CoffeePage = async() => {
+     const coffees = await getAllCoffee();
+     // console.log("All coffees:", coffees);
+
      return (
           <div className="defaultWidth">
                <h1 className="text-2xl font-medium">Coffee page</h1>
