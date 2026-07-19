@@ -4,9 +4,9 @@ import Link from 'next/link'
 
 const navigation = [
      { name: 'Home', href: '/', current: false },
-     { name: 'Home', href: '/', current: false },
-     { name: 'Home', href: '/', current: false },
-     { name: 'Home', href: '/', current: false },
+     { name: 'Coffee', href: '/coffee', current: false },
+     { name: 'Blog', href: '/blog', current: false },
+     { name: 'Contact', href: '/contact', current: false },
 ]
 
 function classNames(...classes) {
@@ -93,3 +93,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+
