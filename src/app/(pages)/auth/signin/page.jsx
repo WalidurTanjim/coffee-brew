@@ -13,7 +13,7 @@ const Signin = () => {
 
                          {/* Sign In Link */}
                          <p className="text-center text-sm text-base-content/60 mt-4">
-                              Don't have an account?{' '}
+                              <span className='text-slate-500'>Don't have an account?</span>{' '}
                               <Link href="/auth/signup" className="text-warning hover:underline">Sign up</Link>
                          </p>
                     </div>
