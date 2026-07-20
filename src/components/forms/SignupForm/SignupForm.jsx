@@ -4,12 +4,16 @@ import React, { useState } from 'react';
 import { EnvelopeIcon, UserIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import { SignUpUser } from '@/actions/server/auth';
+import { useRouter } from 'next/navigation';
+import Swal from 'sweetalert2';
 
 const SignupForm = () => {
      const [showPassword, setShowPassword] = useState(false);
      const [error, setError] = useState('');
      const [loading, setLoading] = useState(false);
      const [success, setSuccess] = useState(false);
+
+     const router = useRouter();
 
      const handleSignup = async(e) => {
           e.preventDefault();
@@ -32,8 +36,13 @@ const SignupForm = () => {
                // console.log("Signup result:", result);
 
                if(result?.success) {
-                    alert(`${result?.message}, ${result?.data?.insertedId}`);
+                    Swal.fire({
+                         title: "Congratulations!",
+                         text: "Account created successfully",
+                         icon: "success"
+                    });
                     setSuccess(true);
+                    router.push('/')
                }else{
                     alert(`${result?.message}`)
                }
