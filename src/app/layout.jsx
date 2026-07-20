@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Poppins, Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navigation/Navbar/Navbar";
 import Footer from "@/components/navigation/Footer/Footer";
+// import NextAuthProvider from "@/provider/NextAuthProvider";
 
 const poppins = Poppins({
   weight: ["100", "200", "400", "500", "600", "800"]

@@ -1,14 +1,23 @@
 "use client";
 
 import React, { useState } from 'react';
-import { EnvelopeIcon, UserIcon } from '@heroicons/react/24/outline';
+import { EnvelopeIcon, UserIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { SignUpUser } from '@/actions/server/auth';
 
 const SignupForm = () => {
      const [showPassword, setShowPassword] = useState(false);
+     const [error, setError] = useState('');
+     const [loading, setLoading] = useState(false);
+     const [success, setSuccess] = useState(false);
 
-     const handleSignup = (e) => {
+     const handleSignup = async(e) => {
           e.preventDefault();
+
+          // reset states
+          setError('');
+          setLoading(true);
+          setSuccess(false);
           
           const form = e.target;
           const fullname = form.fullname.value;
@@ -16,7 +25,29 @@ const SignupForm = () => {
           const password = form.password.value;
           const payload = { fullname, email, password };
 
-          console.log("Signup payload:", payload);
+          // console.log("Signup payload:", payload);
+
+          try{
+               const result = await SignUpUser(payload);
+               // console.log("Signup result:", result);
+
+               if(result?.success) {
+                    alert(`${result?.message}, ${result?.data?.insertedId}`);
+                    setSuccess(true);
+               }else{
+                    alert(`${result?.message}`)
+               }
+          }catch(err) {
+               console.error(err);
+
+               setError(err?.message === 'Failed to fetch' 
+                         ? 'Network error. Please check your connection.' 
+                         : 'Something went wrong. Please try again later.'
+                    );
+          }finally{
+               setLoading(false);
+               form.reset();
+          }
      };
 
      const togglePasswordVisibility = () => {
@@ -71,7 +102,7 @@ const SignupForm = () => {
                </div>
 
                <div>
-                    <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">Sign up</button>
+                    <button type="submit" disabled={loading} className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors ${loading ? 'bg-gray-700 cursor-not-allowed' : 'bg-gray-800'}`}>{loading ? <ArrowPathIcon className="h-5 w-5" aria-hidden="true" /> : "Sign up"}</button>
                </div>
           </form>
      );
