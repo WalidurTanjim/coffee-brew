@@ -1,5 +1,6 @@
 import { getSingleCoffeeById } from "@/actions/server/coffee";
-import { ShoppingCartIcon, HeartIcon, StarIcon, CheckCircleIcon, GlobeAltIcon, MapPinIcon, ArrowLeftIcon, BeakerIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
+import AddToCartTextButton from "@/components/Buttons/AddToCartTextButton/AddToCartTextButton";
+import { HeartIcon, StarIcon, CheckCircleIcon, GlobeAltIcon, MapPinIcon, ArrowLeftIcon, BeakerIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartSolidIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
@@ -126,10 +127,11 @@ const CoffeeDetails = async ({ params }) => {
                                              <div className="flex items-center gap-4">
                                                   <span className="text-lg font-semibold text-gray-900">${variant.price.toFixed(2)}</span>
 
-                                                  <button className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-sm" disabled={variant.stock === 0}>
+                                                  {/* <button className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-sm" disabled={variant.stock === 0}>
                                                        <ShoppingCartIcon className="h-4 w-4" />
                                                        Add to Cart
-                                                  </button>
+                                                  </button> */}
+                                                  <AddToCartTextButton variant={variant} coffee={coffee} />
                                              </div>
                                         </div>
                                    ))}
