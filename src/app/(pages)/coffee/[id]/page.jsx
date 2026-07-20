@@ -1,6 +1,7 @@
 import { getSingleCoffeeById } from "@/actions/server/coffee";
 import { ShoppingCartIcon, HeartIcon, StarIcon, CheckCircleIcon, GlobeAltIcon, MapPinIcon, ArrowLeftIcon, BeakerIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartSolidIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 const CoffeeDetails = async ({ params }) => {
      const { id } = await params;
@@ -9,10 +10,12 @@ const CoffeeDetails = async ({ params }) => {
      return (
           <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
                {/* Back Button */}
-               <button className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-6">
-                    <ArrowLeftIcon className="h-5 w-5" />
-                    <span>Go back</span>
-               </button>
+               <Link href={`/coffee`}>
+                    <button className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-6">
+                         <ArrowLeftIcon className="h-5 w-5" />
+                         <span>Go back</span>
+                    </button>
+               </Link>
 
                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {/* Left Column - Image */}
