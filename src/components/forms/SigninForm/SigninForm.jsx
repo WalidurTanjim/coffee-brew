@@ -3,19 +3,40 @@
 import React, { useState } from 'react';
 import { EnvelopeIcon, UserIcon } from '@heroicons/react/24/outline';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { signIn } from "next-auth/react"
 
 const SigninForm = () => {
      const [showPassword, setShowPassword] = useState(false);
+     const [error, setError] = useState('');
+     const [loading, setLoading] = useState(false);
+     const [success, setSuccess] = useState(false);
 
-     const handleSignup = (e) => {
+     const handleSignup = async(e) => {
           e.preventDefault();
+
+          setError('');
+          setLoading(true);
+          setSuccess(false);
           
           const form = e.target;
           const email = form.email.value;
           const password = form.password.value;
           const payload = { email, password };
+          // console.log("Signup payload:", payload);
 
-          console.log("Signup payload:", payload);
+          try{
+               const result = await signIn("credentials", { email: payload?.email, password: payload?.password, redirect: false });
+               console.log("Signin result from client:", result);
+          }catch(err){
+               console.error(err);
+
+               setError(err?.message === 'Failed to fetch' 
+                         ? 'Network error. Please check your connection.' 
+                         : 'Something went wrong. Please try again later.'
+                    );
+          }finally{
+               setLoading(false);
+          }
      };
 
      const togglePasswordVisibility = () => {

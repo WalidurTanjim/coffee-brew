@@ -3,6 +3,7 @@ import collections from "@/lib/collections";
 import dbConnect from "@/lib/dbConnect";
 import bcrypt from "bcryptjs";
 
+// SignUpUser
 export const SignUpUser = async(payload) => {
      try{
           const { fullname, email, password } = payload;

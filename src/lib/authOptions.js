@@ -11,6 +11,7 @@ const authOptions = {
                     password: { label: "Password", type: "password" }
                },
                async authorize(credentials, req) {
+                    console.log("Credentials from auth:", credentials);
                     // Return null if user data could not be retrieved
                     return null
                }
@@ -22,15 +23,15 @@ const authOptions = {
                return true
           },
           async redirect({ url, baseUrl }) {
-               console.log("SignIn:", { url, baseUrl })
+               console.log("Redirect:", { url, baseUrl })
                return baseUrl
           },
           async session({ session, token, user }) {
-               console.log("SignIn:", { session, token, user })
+               console.log("Session:", { session, token, user })
                return session
           },
           async jwt({ token, user, account, profile, isNewUser }) {
-               console.log("SignIn:", { token, user, account, profile, isNewUser })
+               console.log("JWT:", { token, user, account, profile, isNewUser })
                return token
           }
      }
