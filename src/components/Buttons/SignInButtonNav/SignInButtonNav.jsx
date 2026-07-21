@@ -7,7 +7,7 @@ import { signOut } from "next-auth/react"
 
 const SignInButtonNav = () => {
      const session = useSession();
-     console.log("Session from SignInButton:", session);
+     // console.log("Session from SignInButton:", session);
 
      return (
           <>
