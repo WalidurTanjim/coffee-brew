@@ -13,7 +13,7 @@ const authOptions = {
                async authorize(credentials, req) {
                     try{
                          const user = await SignInUser(credentials);
-                         // console.log("Loggedin user credential from authOptions:", user);
+                         console.log("Loggedin user credential from authOptions:", user);
                          if(user?.message === "All fields are required") {
                               throw new Error("All fields are required");
                          }

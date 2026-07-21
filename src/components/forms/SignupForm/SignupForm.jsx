@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { EnvelopeIcon, UserIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import { SignUpUser } from '@/actions/server/auth';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Swal from 'sweetalert2';
 
 const SignupForm = () => {
@@ -14,6 +14,9 @@ const SignupForm = () => {
      const [success, setSuccess] = useState(false);
 
      const router = useRouter();
+     const searchParams = useSearchParams();
+     const callback = searchParams.get("callbackUrl") || "/";
+     console.log("CallbackUrl from SignUpForm:", callback)
 
      const handleSignup = async(e) => {
           e.preventDefault();
@@ -42,7 +45,7 @@ const SignupForm = () => {
                          icon: "success"
                     });
                     setSuccess(true);
-                    router.push('/')
+                    router.push(callback)
                }else{
                     alert(`${result?.message}`)
                }

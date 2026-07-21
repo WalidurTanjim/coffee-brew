@@ -1,6 +1,6 @@
 import SigninForm from '@/components/forms/SigninForm/SigninForm';
+import SignUpLink from '@/components/links/SignUpLink/SignUpLink';
 import GoogleSignInButton from '@/components/SocialButtons/GoogleSignInButton/GoogleSignInButton';
-import Link from 'next/link';
 import React from 'react'
 
 const Signin = () => {
@@ -15,10 +15,7 @@ const Signin = () => {
                          <GoogleSignInButton />
 
                          {/* Sign In Link */}
-                         <p className="text-center text-sm text-base-content/60 mt-4">
-                              <span className='text-slate-500'>Don't have an account?</span>{' '}
-                              <Link href="/auth/signup" className="text-warning hover:underline">Sign up</Link>
-                         </p>
+                         <SignUpLink />
                     </div>
                </div>
           </div>

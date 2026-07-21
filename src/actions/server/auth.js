@@ -31,6 +31,7 @@ export const SignUpUser = async(payload) => {
           const newPayload = { 
                fullname, email, password: newPassword,
                role: "user",
+               provider: "credentials",
                created_at: new Date(),
                updated_at: new Date()
            };
