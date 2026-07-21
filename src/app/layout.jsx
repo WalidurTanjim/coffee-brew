@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navigation/Navbar/Navbar";
 import Footer from "@/components/navigation/Footer/Footer";
+import NextAuthProvider from "@/provider/NextAuthProvider";
 // import NextAuthProvider from "@/provider/NextAuthProvider";
 
 const poppins = Poppins({
@@ -98,14 +99,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${poppins.className} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        <Navbar />
+    <NextAuthProvider>
+      <html lang="en" className={`${poppins.className} h-full antialiased`}>
+        <body className="min-h-full flex flex-col">
+          <Navbar />
 
-        <main>{children}</main>
+          <main>{children}</main>
 
-        <Footer />
-      </body>
-    </html>
+          <Footer />
+        </body>
+      </html>
+    </NextAuthProvider>
   );
 }

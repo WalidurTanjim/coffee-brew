@@ -72,7 +72,7 @@ export const SignInUser = async(payload) => {
 
           const query = { email };
           const user = await dbConnect(collections.USERS).findOne(query);
-          console.log("Exist user form auth:", user);
+          // console.log("Exist user form auth:", user);
           
           if(!user) {
                throw new Error("Invalid email")

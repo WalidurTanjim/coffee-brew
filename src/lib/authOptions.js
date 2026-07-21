@@ -12,6 +12,10 @@ const authOptions = {
                     try{
                          const user = await SignInUser(credentials);
                          // console.log("Loggedin user credential from authOptions:", user);
+                         if(user?.message === "All fields are required") {
+                              throw new Error("All fields are required");
+                         }
+                         
                          if(user?.message === "Invalid email") {
                               throw new Error("Invalid email")
                          }

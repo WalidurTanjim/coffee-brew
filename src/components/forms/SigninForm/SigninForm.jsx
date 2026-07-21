@@ -50,7 +50,6 @@ const SigninForm = () => {
                // form.reset();
           }
      };
-     console.log("error state bottom:", error)
 
      const togglePasswordVisibility = () => {
           setShowPassword(!showPassword);
