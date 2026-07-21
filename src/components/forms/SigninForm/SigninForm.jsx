@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { EnvelopeIcon, UserIcon } from '@heroicons/react/24/outline';
 import { EyeIcon, EyeSlashIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
 import { signIn } from "next-auth/react"
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const SigninForm = () => {
      const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +13,9 @@ const SigninForm = () => {
      const [success, setSuccess] = useState(false);
 
      const router = useRouter();
+     const searchParams = useSearchParams();
+     const callback = searchParams.get('callbackUrl') || '/';
+     console.log("Callback url from signin form:", callback)
 
      const handleSignup = async(e) => {
           e.preventDefault();
@@ -28,7 +31,7 @@ const SigninForm = () => {
           // console.log("Signup payload:", payload);
 
           try{
-               const result = await signIn("credentials", { email: payload?.email, password: payload?.password, redirect: false });
+               const result = await signIn("credentials", { email: payload?.email, password: payload?.password, redirect: false, callbackUrl: callback });
                // console.log("Signin result from client:", result);
 
                if(result?.status === 401) {

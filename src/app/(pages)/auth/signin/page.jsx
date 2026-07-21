@@ -1,4 +1,5 @@
 import SigninForm from '@/components/forms/SigninForm/SigninForm';
+import GoogleSignInButton from '@/components/SocialButtons/GoogleSignInButton/GoogleSignInButton';
 import Link from 'next/link';
 import React from 'react'
 
@@ -10,6 +11,8 @@ const Signin = () => {
                          <h2 className="card-title text-2xl font-semibold text-base-content justify-center mb-6">Sign In</h2>
 
                          <SigninForm />
+
+                         <GoogleSignInButton />
 
                          {/* Sign In Link */}
                          <p className="text-center text-sm text-base-content/60 mt-4">

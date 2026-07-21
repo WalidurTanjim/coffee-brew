@@ -13,7 +13,7 @@ const AddToCartTextButton = ({ variant, coffee }) => {
           if(isLoggedIn){
                alert(JSON.stringify(variant))
           }else{
-               router.push(`/auth/signin?callback=${pathname}`);
+               router.push(`/auth/signin?callbackUrl=${pathname}`);
           }
      }
 

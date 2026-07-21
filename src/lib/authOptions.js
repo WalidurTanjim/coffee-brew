@@ -1,5 +1,7 @@
 import { SignInUser } from "@/actions/server/auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import GoogleProvider from "next-auth/providers/google";
+import envConfig from "./envConfig";
 
 const authOptions = {
      // Configure one or more authentication providers
@@ -15,7 +17,7 @@ const authOptions = {
                          if(user?.message === "All fields are required") {
                               throw new Error("All fields are required");
                          }
-                         
+
                          if(user?.message === "Invalid email") {
                               throw new Error("Invalid email")
                          }
@@ -29,16 +31,23 @@ const authOptions = {
                     }
                }
           }),
+          GoogleProvider({
+               clientId: envConfig.GOOGLE_CLIENT_ID,
+               clientSecret: envConfig.GOOGLE_CLIENT_SECRET
+          })
      ],
      callbacks: {
           async signIn({ user, account, profile, email, credentials }) {
-               // console.log("SignIn:", { user, account, profile, email, credentials })
-               return true
+               console.log("SignIn:", { user, account, profile, email, credentials })
+               if(!user) {
+                    throw new Error("Signin failed.");
+               }
+               return true;
           },
-          async redirect({ url, baseUrl }) {
-               // console.log("Redirect:", { url, baseUrl })
-               return baseUrl
-          },
+          // async redirect({ url, baseUrl }) {
+          //      // console.log("Redirect:", { url, baseUrl })
+          //      return baseUrl
+          // },
           async session({ session, token, user }) {
                // console.log("Session:", { session, token, user })
                return session
