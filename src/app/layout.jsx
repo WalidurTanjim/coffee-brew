@@ -91,8 +91,6 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
 
-  manifest: "/site.webmanifest",
-
   other: {
     "theme-color": "#6F4E37", // coffee color
   },

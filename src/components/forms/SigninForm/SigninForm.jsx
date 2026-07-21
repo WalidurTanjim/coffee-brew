@@ -2,14 +2,17 @@
 
 import React, { useState } from 'react';
 import { EnvelopeIcon, UserIcon } from '@heroicons/react/24/outline';
-import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { EyeIcon, EyeSlashIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
 import { signIn } from "next-auth/react"
+import { useRouter } from 'next/navigation';
 
 const SigninForm = () => {
      const [showPassword, setShowPassword] = useState(false);
      const [error, setError] = useState('');
      const [loading, setLoading] = useState(false);
      const [success, setSuccess] = useState(false);
+
+     const router = useRouter();
 
      const handleSignup = async(e) => {
           e.preventDefault();
@@ -26,9 +29,17 @@ const SigninForm = () => {
 
           try{
                const result = await signIn("credentials", { email: payload?.email, password: payload?.password, redirect: false });
-               console.log("Signin result from client:", result);
+               // console.log("Signin result from client:", result);
+
+               if(result?.status === 401) {
+                    setError(result?.error)
+               }
+
+               if(result?.status === 200) {
+                    router.push(result?.url);
+               }
           }catch(err){
-               console.error(err);
+               console.error("Signin error from SigninForm:", err);
 
                setError(err?.message === 'Failed to fetch' 
                          ? 'Network error. Please check your connection.' 
@@ -36,8 +47,10 @@ const SigninForm = () => {
                     );
           }finally{
                setLoading(false);
+               // form.reset();
           }
      };
+     console.log("error state bottom:", error)
 
      const togglePasswordVisibility = () => {
           setShowPassword(!showPassword);
@@ -45,9 +58,9 @@ const SigninForm = () => {
 
      return (
           <form className="mt-8 space-y-6" onSubmit={handleSignup}>
-               <div className="space-y-4">
+               <div className="m-0">
                     {/* Email Field */}
-                    <div>
+                    <div className='mb-4'>
                          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email address</label>
 
                          <div className="relative">
@@ -60,7 +73,7 @@ const SigninForm = () => {
                     </div>
 
                     {/* Password Field */}
-                    <div>
+                    <div className='mb-4'>
                          <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
 
                          <div className="relative">
@@ -77,8 +90,12 @@ const SigninForm = () => {
                     </div>
                </div>
 
-               <div>
-                    <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">Sign in</button>
+               <div className='m-0'>
+                    { error ? <span className='text-xs text-red-500 font-medium'>** {error}</span> : '' }
+               </div>
+
+               <div className='mt-4'>
+                    <button type="submit" disabled={loading} className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors ${loading ? 'bg-gray-700 cursor-not-allowed' : 'bg-gray-800'}`}>{loading ? <ArrowPathIcon className="h-5 w-5" aria-hidden="true" /> : "Sign in"}</button>
                </div>
           </form>
      );

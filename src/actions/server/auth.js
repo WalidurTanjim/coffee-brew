@@ -61,3 +61,40 @@ export const SignUpUser = async(payload) => {
      }
 }
 
+// SignInUser
+export const SignInUser = async(payload) => {
+     try{
+          const { email, password } = payload;
+
+          if(!email || !password) {
+               throw new Error("All fields are required");
+          }
+
+          const query = { email };
+          const user = await dbConnect(collections.USERS).findOne(query);
+          console.log("Exist user form auth:", user);
+          
+          if(!user) {
+               throw new Error("Invalid email")
+          }
+
+          const isMatchedPassword = await bcrypt.compare(password, user?.password);
+          if(!isMatchedPassword) {
+               throw new Error("Incorrect password")
+          }
+
+          return {
+               success: true,
+               message: "User loggedin successfully",
+               data: user
+          }
+     }catch(err) {
+          console.error("Signin error:", err);
+
+          return {
+               success: false,
+               message: err?.message || "An unexpected error occured during signin",
+               data: null
+          }
+     }
+}
