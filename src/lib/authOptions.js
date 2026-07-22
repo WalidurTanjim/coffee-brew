@@ -38,9 +38,21 @@ const authOptions = {
      ],
      callbacks: {
           async signIn({ user, account, profile, email, credentials }) {
-               // console.log("SignIn:", { user, account, profile, email, credentials })
+               console.log("SignIn:", { user, account, profile, email, credentials })
                if(!user) {
                     throw new Error("Signin failed.");
+               }
+
+               if(user) {
+                    const newUser = {
+                         name: user?.name, 
+                         email: user?.email,
+                         image: user?.image,
+                         provider: account?.provider,
+                         role: "user",
+                         created_at: new Date(),
+                         updated_at: new Date()
+                    }
                }
                return true;
           },
