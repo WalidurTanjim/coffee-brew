@@ -6,9 +6,9 @@ import bcrypt from "bcryptjs";
 // SignUpUser
 export const SignUpUser = async(payload) => {
      try{
-          const { fullname, email, password } = payload;
+          const { name, email, password } = payload;
 
-          if(!fullname || !email || !password) {
+          if(!name || !email || !password) {
                return {
                     success: false,
                     message: "All fields are required",
@@ -29,7 +29,7 @@ export const SignUpUser = async(payload) => {
 
           const newPassword = await bcrypt.hash(password, 10);
           const newPayload = { 
-               fullname, email, password: newPassword,
+               name, email, password: newPassword,
                role: "user",
                provider: "credentials",
                created_at: new Date(),

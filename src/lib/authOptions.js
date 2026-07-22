@@ -38,7 +38,7 @@ const authOptions = {
      ],
      callbacks: {
           async signIn({ user, account, profile, email, credentials }) {
-               console.log("SignIn:", { user, account, profile, email, credentials })
+               // console.log("SignIn:", { user, account, profile, email, credentials })
                if(!user) {
                     throw new Error("Signin failed.");
                }
@@ -49,11 +49,26 @@ const authOptions = {
           //      return baseUrl
           // },
           async session({ session, token, user }) {
-               // console.log("Session:", { session, token, user })
+               console.log("Session:", { session, token, user })
+
+               if(token) {
+                    session.role = token?.role
+               }
+
                return session
           },
           async jwt({ token, user, account, profile, isNewUser }) {
-               // console.log("JWT:", { token, user, account, profile, isNewUser })
+               console.log("JWT:", { token, user, account, profile, isNewUser })
+
+               if(user) {
+                    token.name = user?.data?.name,
+                    token.email = user?.data?.email,
+                    token.role = user?.data?.role
+               }
+
+               if(!user) {
+                    console.log("User not found inside jwt")
+               }
                return token
           }
      }

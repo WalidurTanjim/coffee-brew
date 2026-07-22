@@ -6,6 +6,7 @@ import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import { SignUpUser } from '@/actions/server/auth';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Swal from 'sweetalert2';
+import { signIn } from 'next-auth/react';
 
 const SignupForm = () => {
      const [showPassword, setShowPassword] = useState(false);
@@ -27,25 +28,30 @@ const SignupForm = () => {
           setSuccess(false);
           
           const form = e.target;
-          const fullname = form.fullname.value;
+          const name = form.name.value;
           const email = form.email.value;
           const password = form.password.value;
-          const payload = { fullname, email, password };
+          const payload = { name, email, password };
 
           // console.log("Signup payload:", payload);
 
           try{
                const result = await SignUpUser(payload);
-               // console.log("Signup result:", result);
+               console.log("Signup result:", result);
 
                if(result?.success) {
+                    setSuccess(true);
+                    // router.push(callback);
+
+                    // auto signIn user after successfully signUp
+                    await signIn("credentials", { email: email, password: password, callbackUrl: callback });
+                    // console.log("signInUser from signUpFrom after successfully signUp:", signInUser);
+
                     Swal.fire({
                          title: "Congratulations!",
                          text: "Account created successfully",
                          icon: "success"
                     });
-                    setSuccess(true);
-                    router.push(callback)
                }else{
                     alert(`${result?.message}`)
                }
@@ -71,14 +77,14 @@ const SignupForm = () => {
                <div className="space-y-4">
                     {/* Full Name Field */}
                     <div>
-                         <label htmlFor="fullname" className="block text-sm font-medium text-gray-700 mb-1">Full name</label>
+                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full name</label>
 
                          <div className="relative">
                               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                    <UserIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                               </div>
 
-                              <input id="fullname" name="fullname" type="text" autoComplete="name" required className="appearance-none block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="John Doe" />
+                              <input id="name" name="name" type="text" autoComplete="name" required className="appearance-none block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="John Doe" />
                          </div>
                     </div>
 
