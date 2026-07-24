@@ -136,7 +136,7 @@ const SigninForm = () => {
                     password, 
                     redirect: false 
                });
-               console.log("Result form SigninForm:", result);
+               // console.log("Result form SigninForm:", result);
 
                if (result?.error) {
                     setError(result.error);

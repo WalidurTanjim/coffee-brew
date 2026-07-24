@@ -155,7 +155,7 @@ const SignupForm = () => {
 
           try {
                const result = await SignUpUser({ name, email, password });
-               console.log("Result from SignupForm:", result);
+               // console.log("Result from SignupForm:", result);
 
                if (!result?.success) {
                     return Swal.fire({

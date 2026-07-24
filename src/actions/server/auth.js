@@ -145,7 +145,7 @@ export const SignUpUser = async(payload) => {
           };
 
           const result = await dbConnect(collections.USERS).insertOne(newUser);
-          console.log("SignUpUser result from auth:", result);
+          // console.log("SignUpUser result from auth:", result);
 
           return { 
                success: true, 
@@ -173,7 +173,7 @@ export const SignInUser = async(payload) => {
           const cleanPassword = password.trim();
 
           const user = await dbConnect(collections.USERS).findOne({ email: cleanEmail });
-          console.log("SignInUser result from auth:", user);
+          // console.log("SignInUser result from auth:", user);
 
           if(!user) {
                throw new Error("Invalid email or password");

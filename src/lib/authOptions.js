@@ -91,11 +91,12 @@ const authOptions = {
                credentials: {},
 
                async authorize(credentials) {
-                    console.log({ credentials })
+                    // console.log({ credentials })
+
                     try {
                          const user = await SignInUser(credentials);
                          // authorize সঠিকভাবে ইউজারের অবজেক্ট পেলে লগইন সফল ধরে নেয়
-                         console.log("User from authOptions credentials:", user);
+                         // console.log("User from authOptions credentials:", user);
 
                          if (user) return user;
                          return null;
@@ -112,7 +113,7 @@ const authOptions = {
      callbacks: {
           // ১. সাইন-ইন চেক ও গুগল ইউজারের তথ্য ডাটাবেজে সেভ
           async signIn({ user, account, profile }) {
-               console.log("signIn from callbacks:", { user, account })
+               // console.log("signIn from callbacks:", { user, account })
 
                if (account?.provider === "google") {
                     try {
@@ -147,7 +148,7 @@ const authOptions = {
 
           // ২. টোকেনে ডাটা সেভ (Google ও Credentials উভয়ের জন্য সমান)
           async jwt({ token, user, trigger, session }) {
-               console.log("jwt callbacks:", { token, user, trigger, session })
+               // console.log("jwt callbacks:", { token, user, trigger, session })
 
                // প্রথমবার সাইন ইন করার সময় 'user' এ তথ্য পাওয়া যায়
                if (user) {
@@ -162,7 +163,7 @@ const authOptions = {
 
           // ৩. ফ্রন্টএন্ড সেশনে ডাটা এভেলেবল করা
           async session({ session, token }) {
-               console.log("session from callbacks:", { session, token })
+               // console.log("session from callbacks:", { session, token })
                if (token) {
                     session.user.id = token.id;
                     session.user.name = token.name;
