@@ -14,7 +14,7 @@ const Signin = () => {
 
                          <GoogleSignInButton />
 
-                         {/* Sign In Link */}
+                         {/* Sign Up Link */}
                          <SignUpLink />
                     </div>
                </div>

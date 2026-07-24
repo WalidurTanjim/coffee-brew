@@ -1,5 +1,5 @@
 import SignupForm from '@/components/forms/SignupForm/SignupForm';
-import Link from 'next/link';
+import SignInLink from '@/components/links/SignInLink/SignInLink';
 
 const Signup = () => {
      return (
@@ -10,11 +10,8 @@ const Signup = () => {
 
                          <SignupForm />
 
-                         {/* Sign Up Link */}
-                         <p className="text-center text-sm text-base-content/60 mt-4">
-                              <span className='text-slate-500'>Already have an account?</span>{' '}
-                              <Link href="/auth/signin" className="text-warning hover:underline">Sign in</Link>
-                         </p>
+                         {/* Sign In Link */}
+                         <SignInLink />
                     </div>
                </div>
           </div>
