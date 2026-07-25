@@ -22,7 +22,7 @@ const AddToCartTextButton = ({ variant, coffee }) => {
                }
 
                if(res?.insertedId) {
-                    toast.success("Added to the cart.");
+                    toast.success(res?.message);
                }
           }else{
                router.push(`/auth/signin?callbackUrl=${pathname}`);
