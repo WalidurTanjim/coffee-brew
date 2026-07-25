@@ -8,7 +8,8 @@ import Image from "next/image";
 
 const SignInButtonNav = () => {
      const session = useSession();
-     console.log("Session from SignInButton:", session);
+     const userRole = session?.data?.user?.role;
+     console.log("Session from SignInButton:", session, userRole);
 
      return (
           <>
@@ -31,7 +32,11 @@ const SignInButtonNav = () => {
                               </MenuItem>
 
                               <MenuItem>
-                                   <Link href="/" className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden">Settings</Link>
+                                   {
+                                        userRole === "admin" ?
+                                        <Link href="/dashboard/admin" className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden">Dashboard</Link> :
+                                        <Link href="/dashboard/user" className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden">Dashboard</Link>
+                                   }
                               </MenuItem>
 
                               <MenuItem>
