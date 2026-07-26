@@ -18,6 +18,7 @@ export default function SideNavigationUserProfile() {
      const adminRoutes = [
           { label: "Add Coffee", path: "/dashboard/admin/add-coffee" },
           { label: "My Coffee", path: "/dashboard/admin/my-coffee" },
+          { label: "Cart", path: "/dashboard/admin/cart" },
      ];
 
      // userRoutes

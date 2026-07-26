@@ -6,6 +6,7 @@ import dbConnect from "@/lib/dbConnect"
 import { ObjectId } from "mongodb"
 import { getServerSession } from "next-auth"
 import { revalidatePath } from "next/cache"
+import { cache } from "react"
 
 
 // AddToCart (insert coffee to cart)
@@ -55,7 +56,7 @@ export const AddToCart = async(variant, coffee) => {
 
 
 // GetCartByEmail 
-export const GetCartByEmail = async() => {
+export const GetCartByEmail = cache(async() => {
      const session = await getServerSession(authOptions);
      const userEmail = session?.user?.email;
 
@@ -124,12 +125,12 @@ export const GetCartByEmail = async() => {
                cartItems: []
           }
      }
-}
+})
 
 
 
 // DeleteCartItemById
-export const DeleteCartItemById = async(id) => {
+export const DeleteCartItemById = async(id, pathname) => {
      const coffeeId = id;
 
      if(!coffeeId) {
@@ -158,7 +159,7 @@ export const DeleteCartItemById = async(id) => {
           const result = await cartCollection.deleteOne(query);
 
           if(result?.deletedCount > 0) {
-               revalidatePath('/dashboard/user/cart');
+               revalidatePath(pathname);
 
                return {
                     success: true,

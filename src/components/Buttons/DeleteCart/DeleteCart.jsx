@@ -2,9 +2,12 @@
 
 import { DeleteCartItemById } from '@/actions/server/addToCart';
 import { TrashIcon} from '@heroicons/react/24/outline';
+import { usePathname } from 'next/navigation';
 import Swal from 'sweetalert2';
 
 const DeleteCart = (id) => {
+     const pathname = usePathname();
+     
      const handleDelete = async() => {
           Swal.fire({
                title: "Are you sure?",
@@ -18,7 +21,7 @@ const DeleteCart = (id) => {
                if (result.isConfirmed) {
                     
                     try{
-                         const result = await DeleteCartItemById(id?.id);
+                         const result = await DeleteCartItemById(id?.id, pathname);
                          
                          if(result?.success) {
                               Swal.fire({
@@ -33,7 +36,7 @@ const DeleteCart = (id) => {
                }else {
                     Swal.fire({
                          title: "Failed!",
-                         text: res?.message || "Something went wrong.",
+                         text: result?.message || "Something went wrong.",
                          icon: "error",
                     });
                }
