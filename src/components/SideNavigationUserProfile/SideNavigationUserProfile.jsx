@@ -22,7 +22,7 @@ export default function SideNavigationUserProfile() {
      // userRoutes
      const userRoutes = [
           { label: "My Coffee", path: "/my-coffee" },
-          { label: "Cart", path: "/cart" },
+          { label: "Cart", path: "/dashboard/user/cart" },
      ];
 
      return (

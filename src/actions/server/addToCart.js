@@ -61,22 +61,55 @@ export const GetCartByEmail = async() => {
           }
      }
 
-     try{
+     try {
           const cartCollection = dbConnect(collections.CART);
-          const query = { email: userEmail };
-          const result = await cartCollection.find(query).toArray();
 
-          if(!result) return { success: false, message: "There is not item in the cart" }
+          // aggregate pipeline
+          const result = await cartCollection.aggregate([
+               {
+                    $match: { email: userEmail }
+               },
+               {
+                    $addFields: {
+                         productObjectId: { $toObjectId: '$productId' }
+                    }
+               },
+               {
+                    $lookup: {
+                         from: collections.COFFEES,
+                         localField: "productObjectId",
+                         foreignField: "_id",
+                         as: 'coffeeDetails'
+                    }
+               },
+               {
+                    $unwind: {
+                         path: "$coffeeDetails",
+                         preserveNullAndEmptyArrays: true
+                    }
+               },
+               {
+                    $project: {
+                         productObjectId: 0
+                    }
+               }
+          ]).toArray();
 
-          const cartItems = result.map(item => ({
+          const serializedResult = result.map(item => ({
                ...item,
-               _id: item?._id.toString()
-          }))
-          
+               _id: item?._id.toString(),
+               productId: item?.productId.toString(),
+               created_at: item?.created_at ? new Date(item?.created_at).toISOString() : null,
+               coffeeDetails: item?.coffeeDetails ? {
+                    ...item?.coffeeDetails,
+                    _id: item?.coffeeDetails?._id.toString()
+               } : null
+          }));
+
           return {
                success: true,
-               cartItems
-          };
+               cartItems: serializedResult
+          }
      }catch(err){
           console.error(err);
           return {
