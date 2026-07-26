@@ -3,7 +3,9 @@
 import authOptions from "@/lib/authOptions"
 import collections from "@/lib/collections"
 import dbConnect from "@/lib/dbConnect"
+import { ObjectId } from "mongodb"
 import { getServerSession } from "next-auth"
+import { revalidatePath } from "next/cache"
 
 
 // AddToCart (insert coffee to cart)
@@ -43,6 +45,10 @@ export const AddToCart = async(variant, coffee) => {
           }
      }catch(err) {
           console.error(err);
+          return {
+               success: false,
+               message: err?.message || "An unexpected error occurred during add to cart"
+          }
      }
 }
 
@@ -116,6 +122,59 @@ export const GetCartByEmail = async() => {
                success: false,
                message: err?.message || "An unexpected error occurred during fetching the cart",
                cartItems: []
+          }
+     }
+}
+
+
+
+// DeleteCartItemById
+export const DeleteCartItemById = async(id) => {
+     const coffeeId = id;
+
+     if(!coffeeId) {
+          return {
+               success: false,
+               message: "There is not coffee id. Please try again."
+          }
+     }
+     
+     const session = await getServerSession(authOptions);
+     const userEmail = session?.user?.email;
+
+     if(!userEmail) {
+          return {
+               success: false,
+               message: "Forbidden access"
+          }
+     }
+
+     try{
+          const cartCollection = dbConnect(collections.CART);
+          const query = { 
+               _id: new ObjectId(coffeeId),
+               email: userEmail
+          };
+          const result = await cartCollection.deleteOne(query);
+
+          if(result?.deletedCount > 0) {
+               revalidatePath('/dashboard/user/cart');
+
+               return {
+                    success: true,
+                    message: "Cart item deleted successfully"
+               }
+          }else{
+               return {
+                    success: false,
+                    message: "Cart item not found. Please try again."
+               }
+          }
+     }catch(err) {
+          console.error(err);
+          return {
+               success: false,
+               message: err?.message || "An unexpected error occurred during delete cart item"
           }
      }
 }

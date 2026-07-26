@@ -16,12 +16,12 @@ export default function SideNavigationUserProfile() {
 
      // adminRoutes
      const adminRoutes = [
-          { label: "Add Coffee", path: "/admin/add-coffee" },
+          { label: "Add Coffee", path: "/dashboard/admin/add-coffee" },
+          { label: "My Coffee", path: "/dashboard/admin/my-coffee" },
      ];
 
      // userRoutes
      const userRoutes = [
-          { label: "My Coffee", path: "/my-coffee" },
           { label: "Cart", path: "/dashboard/user/cart" },
      ];
 

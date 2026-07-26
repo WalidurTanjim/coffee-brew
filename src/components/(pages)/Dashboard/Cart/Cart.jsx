@@ -1,5 +1,6 @@
 // components/Cart.jsx
-import { HeartIcon, EyeIcon, TrashIcon, PlusIcon, MinusIcon } from '@heroicons/react/24/outline';
+import DeleteCart from '@/components/Buttons/DeleteCart/DeleteCart';
+import { HeartIcon, EyeIcon, PlusIcon, MinusIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 
@@ -9,7 +10,7 @@ const Cart = async({ item }) => {
      return (
           <div className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all duration-200 mb-5">
                {/* Product Image */}
-               <div className="relative flex-shrink-0 w-full sm:w-24 h-48 sm:h-24 rounded-lg overflow-hidden bg-gray-50">
+               <div className="relative shrink-0 w-full sm:w-24 h-48 sm:h-24 rounded-lg overflow-hidden bg-gray-50">
                     <Image src={item.coffeeDetails.image} alt={item.coffeeDetails.name} fill className="object-cover" sizes="(max-width: 640px) 100vw, 96px" />
                </div>
 
@@ -60,9 +61,7 @@ const Cart = async({ item }) => {
                                    <EyeIcon className="w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors" />
                               </button>
 
-                              <button className="p-2 rounded-lg hover:bg-red-50 transition-colors duration-200" aria-label="Remove from cart">
-                                   <TrashIcon className="w-4 h-4 text-gray-400 hover:text-red-500 transition-colors" />
-                              </button>
+                              <DeleteCart id={item?._id} />
                          </div>
                     </div>
                </div>

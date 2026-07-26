@@ -3,7 +3,7 @@ import Cart from "@/components/(pages)/Dashboard/Cart/Cart"
 
 const UserDashboardCart = async() => {
      const cartItems = await GetCartByEmail() || [];
-     console.log("Cart items from UserDashboardCart:", cartItems);
+     // console.log("Cart items from UserDashboardCart:", cartItems);
 
      return (
           <div className="defaultWidth">
