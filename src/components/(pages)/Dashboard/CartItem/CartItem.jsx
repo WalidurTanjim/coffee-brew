@@ -4,14 +4,14 @@ import { HeartIcon, EyeIcon, PlusIcon, MinusIcon } from '@heroicons/react/24/out
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 
-const Cart = async({ item }) => {
+const CartItem = async({ item }) => {
      const subtotal = item.price * item.quantity;
 
      return (
           <div className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all duration-200 mb-5">
                {/* Product Image */}
                <div className="relative shrink-0 w-full sm:w-24 h-48 sm:h-24 rounded-lg overflow-hidden bg-gray-50">
-                    <Image src={item.coffeeDetails.image} alt={item.coffeeDetails.name} fill className="object-cover" sizes="(max-width: 640px) 100vw, 96px" />
+                    <Image src={item.coffeeDetails.image} alt={item.coffeeDetails.name} fill className="object-cover" loading="eager" sizes="(max-width: 640px) 100vw, 96px" />
                </div>
 
                {/* Product Info */}
@@ -69,4 +69,4 @@ const Cart = async({ item }) => {
      );
 }
 
-export default Cart;
+export default CartItem;

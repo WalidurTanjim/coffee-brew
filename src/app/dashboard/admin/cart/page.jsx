@@ -1,5 +1,5 @@
 import { GetCartByEmail } from '@/actions/server/addToCart';
-import Cart from '@/components/(pages)/Dashboard/Cart/Cart';
+import CartSection from '@/components/(pages)/Dashboard/CartSection/CartSection';
 
 const AdminDashboardCart = async() => {
      const cartItems = await GetCartByEmail() || [];
@@ -7,9 +7,7 @@ const AdminDashboardCart = async() => {
      return (
           <div className="defaultWidth">
                <div>
-                    {
-                         cartItems?.cartItems.map(item => <Cart key={item?._id} item={item} />)
-                    }
+                    <CartSection cartItems={cartItems} />
                </div>
           </div>
      )
