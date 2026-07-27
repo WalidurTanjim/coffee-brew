@@ -1,11 +1,49 @@
-// components/Cart.jsx
-import DeleteCart from '@/components/Buttons/DeleteCart/DeleteCart';
-import { HeartIcon, EyeIcon, PlusIcon, MinusIcon } from '@heroicons/react/24/outline';
+"use client" 
+
+import { DeleteCartItemById } from '@/actions/server/addToCart';
+import { HeartIcon, EyeIcon, PlusIcon, MinusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import Swal from 'sweetalert2';
 
-const CartItem = async({ item }) => {
+const CartItem = ({ item, removeItem }) => {
+     const pathname = usePathname();
+
      const subtotal = item.price * item.quantity;
+
+     // handleDelete 
+     const handleDelete = async() => {
+          Swal.fire({
+               title: "Are you sure?",
+               text: "You won't be able to revert this!",
+               icon: "warning",
+               showCancelButton: true,
+               confirmButtonColor: "#3085d6",
+               cancelButtonColor: "#d33",
+               confirmButtonText: "Yes, delete it!"
+          }).then(async(result) => {
+               if (result.isConfirmed) {
+                    try{
+                         const result = await DeleteCartItemById(item?._id, pathname);
+                         
+                         if(result?.success) {
+                              Swal.fire({
+                                   title: "Deleted!",
+                                   text: result?.message,
+                                   icon: "success"
+                              });
+
+                              // removeItem function call to remove cart item from cartItemsState [CartSection.jsx file]
+                              removeItem(item?._id)
+                         }
+                    }catch(err) {
+                         console.log(err);
+                    }
+               }
+          });
+
+     }
 
      return (
           <div className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all duration-200 mb-5">
@@ -61,7 +99,9 @@ const CartItem = async({ item }) => {
                                    <EyeIcon className="w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors" />
                               </button>
 
-                              <DeleteCart id={item?._id} />
+                              <button className="p-2 rounded-lg hover:bg-red-50 transition-colors duration-200" aria-label="Remove from cart" onClick={handleDelete}>
+                                   <TrashIcon className="w-4 h-4 text-gray-400 hover:text-red-500 transition-colors" />
+                              </button>
                          </div>
                     </div>
                </div>

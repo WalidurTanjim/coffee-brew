@@ -57,7 +57,7 @@ export const AddToCart = async(variant, coffee) => {
 
 
 // GetCartByEmail 
-export const GetCartByEmail = cache(async() => {
+export const GetCartByEmail = async() => {
      const session = await getServerSession(authOptions);
      // console.log("Session from GetCartByEmail action:", session);
      const userEmail = session?.user?.email;
@@ -127,7 +127,7 @@ export const GetCartByEmail = cache(async() => {
                cartItems: []
           }
      }
-})
+}
 
 
 
@@ -161,7 +161,7 @@ export const DeleteCartItemById = async(id, pathname) => {
           const result = await cartCollection.deleteOne(query);
 
           if(result?.deletedCount > 0) {
-               revalidatePath(pathname);
+               // revalidatePath(pathname);
 
                return {
                     success: true,

@@ -6,9 +6,7 @@ const AdminDashboardCart = async() => {
 
      return (
           <div className="defaultWidth">
-               <div>
-                    <CartSection cartItems={cartItems} />
-               </div>
+               <CartSection cartItems={cartItems} />
           </div>
      )
 }
