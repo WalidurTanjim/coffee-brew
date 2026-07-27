@@ -1,13 +1,13 @@
 "use client" 
 
-import { DeleteCartItemById } from '@/actions/server/addToCart';
+import { DeleteCartItemById, IncrementCartQuantity } from '@/actions/server/addToCart';
 import { HeartIcon, EyeIcon, PlusIcon, MinusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import Swal from 'sweetalert2';
 
-const CartItem = ({ item, removeItem }) => {
+const CartItem = ({ item, removeItem, incrementQuantityItem }) => {
      const pathname = usePathname();
 
      const subtotal = item.price * item.quantity;
@@ -43,6 +43,27 @@ const CartItem = ({ item, removeItem }) => {
                }
           });
 
+     }
+
+     // handleIncrementQuantity
+     const handleIncrementQuantity = async() => {
+          try{
+               const result = await IncrementCartQuantity(item?._id);
+               // console.log("Increment quantity form client:", result);
+
+               if(result?.success) {
+                    Swal.fire({
+                         title: "Good job!",
+                         text: result?.message,
+                         icon: "success"
+                    });
+
+                    // increment cart quantity after successfully increment in database
+                    incrementQuantityItem(item?._id, item?.quantity + 1);
+               }
+          }catch(err) {
+               console.error(err);
+          }
      }
 
      return (
@@ -84,7 +105,7 @@ const CartItem = ({ item, removeItem }) => {
 
                               <span className="w-8 text-center text-sm font-medium text-gray-700">{item.quantity}</span>
 
-                              <button className="p-1.5 rounded-md hover:bg-white transition-colors duration-200" aria-label="Increase quantity">
+                              <button className="p-1.5 rounded-md hover:bg-white transition-colors duration-200" aria-label="Increase quantity" onClick={handleIncrementQuantity}>
                                    <PlusIcon className="w-4 h-4 text-gray-600" />
                               </button>
                          </div>

@@ -181,3 +181,69 @@ export const DeleteCartItemById = async(id, pathname) => {
           }
      }
 }
+
+
+
+// IncrementCartQuantity
+export const IncrementCartQuantity = async(id) => {
+     const session = await getServerSession(authOptions);
+     const userEmail = session?.user?.email;
+
+     if(!userEmail) {
+          return {
+               success: false,
+               message: "Forbidden access"
+          }
+     };
+
+     if(!id || id.length !== 24) {
+          return {
+               success: false,
+               message: "Invalid access occurred"
+          }
+     };
+
+     try{
+          const cartCollection = dbConnect(collections.CART);
+
+          const query = {
+               _id: new ObjectId(id),
+               email: userEmail
+          };
+
+          const updatedCart = {
+               $inc: {
+                    quantity: 1
+               }
+          }
+
+          const cartItem = await cartCollection.findOne(query);
+          if(!cartItem) {
+               return {
+                    success: false,
+                    message: "There is not cart item in this product"
+               }
+          }
+
+          const result = await cartCollection.updateOne(query, updatedCart);
+
+          if(result?.modifiedCount === 1) {
+               return {
+                    success: true,
+                    message: "Item quantity increased successfully"
+               }
+          }else {
+               return {
+                    success: false,
+                    message: "Something went wrong!"
+               }
+          }
+     }catch(err) {
+          console.error(err);
+
+          return {
+               success: false,
+               message: err?.message || "An unexpected error occurred during increase quantity"
+          }
+     }
+}

@@ -23,13 +23,20 @@ const CartSection = ({ cartItems }) => {
           setCartItemsState(prevItems => prevItems.filter(item => item?._id !== id));
      }
 
+     // incrementQuantityItem
+     const incrementQuantityItem = (id, q) => {
+          setCartItemsState(prevItems => prevItems.map(item => item?._id == id ? {
+               ...item, quantity: q
+          } : item))
+     }
+
      return (
           <div className="cartSection">
                <div className="grid gap-5 grid-cols-1 md:grid-cols-6">
                     {/* cart items */}
                     <div className="col-span-1 md:col-span-4 order-2 md:order-1">
                          {
-                              cartItemsState.map(item => <CartItem key={item?._id} item={item} removeItem={removeItem} />)
+                              cartItemsState.map(item => <CartItem key={item?._id} item={item} removeItem={removeItem} incrementQuantityItem={incrementQuantityItem} />)
                          }
                     </div>
 
