@@ -1,13 +1,13 @@
 "use client" 
 
-import { DeleteCartItemById, IncrementCartQuantity } from '@/actions/server/addToCart';
+import { DecrementCartQuantity, DeleteCartItemById, IncrementCartQuantity } from '@/actions/server/addToCart';
 import { HeartIcon, EyeIcon, PlusIcon, MinusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import Swal from 'sweetalert2';
 
-const CartItem = ({ item, removeItem, incrementQuantityItem }) => {
+const CartItem = ({ item, removeItem, incrementQuantityItem, decrementQuantityItem }) => {
      const pathname = usePathname();
 
      const subtotal = item.price * item.quantity;
@@ -66,6 +66,33 @@ const CartItem = ({ item, removeItem, incrementQuantityItem }) => {
           }
      }
 
+     // handleDecrementQuantity
+     const handleDecrementQuantity = async() => {
+          try{
+               const result = await DecrementCartQuantity(item?._id);
+               // console.log("Decrement quantity from client:", result);
+
+               if(result?.success) {
+                    Swal.fire({
+                         title: "Good job!",
+                         text: result?.message,
+                         icon: "success"
+                    })
+
+                    // decrement cart quantity after successfully decrement in database
+                    decrementQuantityItem(item?._id, item?.quantity - 1)
+               }else {
+                    Swal.fire({
+                         title: "Sorry",
+                         text: result?.message,
+                         icon: "warning"
+                    })
+               }
+          }catch(err) {
+               console.error(err);
+          }
+     }
+
      return (
           <div className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all duration-200 mb-5">
                {/* Product Image */}
@@ -99,7 +126,7 @@ const CartItem = ({ item, removeItem, incrementQuantityItem }) => {
                     <div className="flex flex-wrap items-center justify-between gap-3 mt-3 pt-3 border-t border-gray-50">
                          {/* Quantity Controls */}
                          <div className="flex items-center gap-1 bg-gray-50 rounded-lg p-1">
-                              <button className="p-1.5 rounded-md hover:bg-white transition-colors duration-200 disabled:opacity-30  disabled:cursor-not-allowed" aria-label="Decrease quantity">
+                              <button className="p-1.5 rounded-md hover:bg-white transition-colors duration-200 disabled:opacity-30  disabled:cursor-not-allowed" aria-label="Decrease quantity" onClick={handleDecrementQuantity}>
                                    <MinusIcon className="w-4 h-4 text-gray-600" />
                               </button>
 
