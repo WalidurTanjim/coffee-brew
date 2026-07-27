@@ -1,5 +1,6 @@
 "use client" 
 
+import { useState } from 'react';
 import { DecrementCartQuantity, DeleteCartItemById, IncrementCartQuantity } from '@/actions/server/addToCart';
 import { HeartIcon, EyeIcon, PlusIcon, MinusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
@@ -8,6 +9,9 @@ import { usePathname } from 'next/navigation';
 import Swal from 'sweetalert2';
 
 const CartItem = ({ item, removeItem, incrementQuantityItem, decrementQuantityItem }) => {
+     // states
+     const [loading, setLoading] = useState(false);
+
      const pathname = usePathname();
 
      const subtotal = item.price * item.quantity;
@@ -47,6 +51,8 @@ const CartItem = ({ item, removeItem, incrementQuantityItem, decrementQuantityIt
 
      // handleIncrementQuantity
      const handleIncrementQuantity = async() => {
+          setLoading(true);
+
           try{
                const result = await IncrementCartQuantity(item?._id);
                // console.log("Increment quantity form client:", result);
@@ -63,11 +69,15 @@ const CartItem = ({ item, removeItem, incrementQuantityItem, decrementQuantityIt
                }
           }catch(err) {
                console.error(err);
+          }finally{
+               setLoading(false);
           }
      }
 
      // handleDecrementQuantity
      const handleDecrementQuantity = async() => {
+          setLoading(true);
+
           try{
                const result = await DecrementCartQuantity(item?._id);
                // console.log("Decrement quantity from client:", result);
@@ -90,6 +100,8 @@ const CartItem = ({ item, removeItem, incrementQuantityItem, decrementQuantityIt
                }
           }catch(err) {
                console.error(err);
+          }finally{
+               setLoading(false);
           }
      }
 
@@ -126,14 +138,14 @@ const CartItem = ({ item, removeItem, incrementQuantityItem, decrementQuantityIt
                     <div className="flex flex-wrap items-center justify-between gap-3 mt-3 pt-3 border-t border-gray-50">
                          {/* Quantity Controls */}
                          <div className="flex items-center gap-1 bg-gray-50 rounded-lg p-1">
-                              <button className="p-1.5 rounded-md hover:bg-white transition-colors duration-200 disabled:opacity-30  disabled:cursor-not-allowed" aria-label="Decrease quantity" onClick={handleDecrementQuantity}>
-                                   <MinusIcon className="w-4 h-4 text-gray-600" />
+                              <button disabled={loading || item?.quantity == 1} className="p-1.5 rounded-md hover:bg-white transition-colors duration-200 disabled:opacity-30  disabled:cursor-not-allowed" aria-label="Decrease quantity" onClick={handleDecrementQuantity}>
+                                   <MinusIcon className={`w-4 h-4 ${loading ? 'text-gray-300' : 'text-gray-600'}`} />
                               </button>
 
                               <span className="w-8 text-center text-sm font-medium text-gray-700">{item.quantity}</span>
 
-                              <button className="p-1.5 rounded-md hover:bg-white transition-colors duration-200" aria-label="Increase quantity" onClick={handleIncrementQuantity}>
-                                   <PlusIcon className="w-4 h-4 text-gray-600" />
+                              <button disabled={loading} className="p-1.5 rounded-md hover:bg-white transition-colors duration-200" aria-label="Increase quantity" onClick={handleIncrementQuantity}>
+                                   <PlusIcon className={`w-4 h-4 ${loading ? 'text-gray-300' : 'text-gray-600'}`} />
                               </button>
                          </div>
 
