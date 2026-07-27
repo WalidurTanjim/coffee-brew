@@ -33,12 +33,6 @@ const DeleteCart = (id) => {
                     }catch(err) {
                          console.log(err);
                     }
-               }else {
-                    Swal.fire({
-                         title: "Failed!",
-                         text: result?.message || "Something went wrong.",
-                         icon: "error",
-                    });
                }
           });
 
