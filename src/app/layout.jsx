@@ -99,16 +99,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <NextAuthProvider>
-      <html lang="en" className={`${poppins.className} h-full antialiased`}>
-        <body className="min-h-full flex flex-col">
-          <Navbar />
+    <html lang="en" className={`${poppins.className} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">
+        <NextAuthProvider>  {/* NextAuthProvider */}
+          <Navbar />  {/* Navbar */}
 
           <main>{children}</main>
 
-          <Footer />
-        </body>
-      </html>
-    </NextAuthProvider>
+          <Footer />  {/* Footer */}
+        </NextAuthProvider>
+      </body>
+    </html>
   );
 }

@@ -9,7 +9,7 @@ const DashboardLayout = ({ children }) => {
                          <SideNavigationUserProfile />
 
                          {/* Main Workspace Area (Shifted right on desktop to accommodate the fixed 72-unit sidebar) */}
-                         <div className="flex flex-col lg:pl-72">
+                         <div className="flex flex-col">
                               <main className="flex-1 p-6 sm:p-8 lg:p-10">
                                    {children}
                               </main>

@@ -29,7 +29,7 @@ export default function SideNavigationUserProfile() {
      return (
           <>
                {/* Mobile Toggle Trigger */}
-               <button title="Toggle side navigation" type="button" className={`fixed right-8 top-24 z-10 flex h-10 w-10 items-center justify-center rounded bg-white shadow-md transition-all lg:hidden ${ isSideNavOpen ? "ring-2 ring-emerald-500" : "" }`} aria-haspopup="menu" aria-label="Side navigation" aria-expanded={isSideNavOpen} aria-controls="nav-menu-sidebar" onClick={() => setIsSideNavOpen(!isSideNavOpen)}>
+               <button title="Toggle side navigation" type="button" className={`fixed right-8 top-24 z-10 flex h-10 w-10 items-center justify-center rounded bg-white shadow-md transition-all  ${ isSideNavOpen ? "ring-2 ring-emerald-500" : "" }`} aria-haspopup="menu" aria-label="Side navigation" aria-expanded={isSideNavOpen} aria-controls="nav-menu-sidebar" onClick={() => setIsSideNavOpen(!isSideNavOpen)}>
                     <div className="relative h-5 w-5">
                          <span className={`absolute block h-0.5 w-5 rounded-full bg-slate-700 transition-all duration-300 ${isSideNavOpen ? "top-2.5 rotate-45" : "top-0.5"}`}/>
                          <span className={`absolute top-2.5 block h-0.5 w-5 rounded-full bg-slate-700 transition-all duration-300 ${isSideNavOpen ? "opacity-0" : "opacity-100"}`}/>
@@ -38,17 +38,17 @@ export default function SideNavigationUserProfile() {
                </button>
 
                {/* Side Navigation Panel */}
-               <aside id="nav-menu-sidebar" aria-label="Side navigation" className={`fixed top-0 bottom-0 left-0 z-40 flex w-72 flex-col border-r border-slate-200 bg-white transition-transform duration-300 ease-in-out lg:translate-x-0 ${ isSideNavOpen ? "translate-x-0" : "-translate-x-full" }`}>
+               <aside id="nav-menu-sidebar" aria-label="Side navigation" className={`fixed top-16 bottom-0 left-0 z-40 flex w-72 flex-col border-r border-slate-200 bg-white transition-transform duration-300 ease-in-out -translate-x-full ${ isSideNavOpen ? "translate-x-0" : "-translate-x-full" }`}>
                     {/* User Profile Header */}
-                    <div className="flex flex-col items-center gap-4 border-b border-slate-200 p-6">
-                         <div className="relative h-12 w-12 shrink-0">
+                    <div className="flex justify-between items-center gap-4 border-b border-slate-200 p-6">
+                         <div className="relative h-12 w-12 shrink-0 border-2 border-slate-500 rounded-full">
                               <Image src="https://i.pravatar.cc/150?img=7" alt="Profile pic" width={50} height={50} className="h-full w-full rounded-full object-cover" />
                                    <span className="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-500" title="Online status">
                                    <span className="sr-only">online</span>
                               </span>
                          </div>
                          
-                         <div className="flex w-full flex-col items-center justify-center text-center">
+                         <div className="flex w-full flex-col items-center justify-center text-right">
                               <h4 className="w-full truncate text-base font-medium text-slate-700">{userName ? userName : 'Loading...'}</h4>
                               <p className="w-full truncate text-sm text-slate-500">{userEmail ? userEmail : 'Loading...'}</p>
                          </div>
@@ -92,7 +92,7 @@ export default function SideNavigationUserProfile() {
 
                {/* Mobile Backdrop */}
                {isSideNavOpen && (
-                    <div className="fixed inset-0 z-30 bg-slate-900/30 backdrop-blur-sm lg:hidden" onClick={() => setIsSideNavOpen(false)} aria-hidden="true" />
+                    <div className="fixed inset-0 z-30 bg-slate-900/50" onClick={() => setIsSideNavOpen(false)} aria-hidden="true" />
                )}
           </>
      )

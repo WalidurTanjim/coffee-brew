@@ -12,7 +12,8 @@ import { cache } from "react"
 // AddToCart (insert coffee to cart)
 export const AddToCart = async(variant, coffee) => {
      const session = await getServerSession(authOptions);
-     // console.log("Server session:", session, variant, coffee);
+     // console.log("Session from addToCart action:", session, variant, coffee);
+     
      const userEmail = session?.user?.email;
      
      // check is the user loggedin or not
@@ -58,6 +59,7 @@ export const AddToCart = async(variant, coffee) => {
 // GetCartByEmail 
 export const GetCartByEmail = cache(async() => {
      const session = await getServerSession(authOptions);
+     // console.log("Session from GetCartByEmail action:", session);
      const userEmail = session?.user?.email;
 
      if(!userEmail) {
