@@ -2,26 +2,34 @@
 
 import { useEffect, useMemo, useState } from "react"
 import CartItem from "../CartItem/CartItem";
+import Link from "next/link";
 
 const CartSection = ({ cartItems }) => {
      const initialItems = cartItems?.cartItems || [];
      const [cartItemsState, setCartItemsState] = useState(initialItems);
      // console.log(cartItemsState)
 
-     // calculate total cart items quantity
-     const totalItems = useMemo(() => cartItemsState.reduce((acu, item) => acu + item?.quantity, 0), [cartItemsState])
-     // console.log({ totalItems })
-
-     // calculate cart items total price
-     const calculatePrice = useMemo(() => cartItemsState.reduce((acu, item) => acu + (item?.quantity * item?.price), 0), [cartItemsState])
-     const totalPrice = Math.ceil(calculatePrice);
-     // console.log("Total price:", totalPrice);
-
      useEffect(() => {
           if (cartItems?.cartItems) {
                setCartItemsState(cartItems.cartItems);
           }
      }, [cartItems]);
+
+     // calculate total cart items quantity
+     const totalItems = useMemo(
+          () => cartItemsState.reduce((acc, item) => acc + (item?.quantity || 0), 0),
+          [cartItemsState] 
+     );
+     // console.log({ totalItems })
+
+     // calculate cart items total price
+     const calculatePrice = useMemo(
+          () =>
+               cartItemsState.reduce((acc, item) => acc + (item?.quantity || 0) * (item?.price || 0), 0),
+          [cartItemsState]
+     );
+     const totalPrice = Math.ceil(calculatePrice);
+     // console.log("Total price:", totalPrice);
 
      // removeItem
      const removeItem = (id) => {
@@ -81,14 +89,16 @@ const CartSection = ({ cartItems }) => {
                               
                               <div className="border-t border-gray-200 mt-4 pt-4">
                                    <div className="flex justify-between items-center">
-                                        <span className="text-lg font-semibold text-gray-800">Total</span>
-                                        <span className="text-xl font-bold text-red-600">${totalPrice ? totalPrice : 0}</span>
+                                        <span className="text-lg font-medium text-gray-800">Total</span>
+                                        <span className="text-xl font-medium text-red-600">${totalPrice ? totalPrice : 0}</span>
                                    </div>
                               </div>
                               
                               {/* calculation and checkout button section */}
                               <div className="mt-5">
-                                   <button className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">Proceed to Checkout</button>
+                                   <Link href={`/checkout`}>
+                                        <button disabled={!cartItemsState.length} className={`w-full text-white font-medium py-3 px-6 rounded-md transition duration-150 text-sm shadow-sm ${cartItemsState.length ? 'bg-slate-900 hover:bg-slate-800' : 'bg-slate-500 cursor-not-allowed'}`}>Proceed to Checkout</button>
+                                   </Link>
                                    
                                    <div className="mt-3 text-center">
                                         <p className="text-xs text-gray-500">Secure checkout · Free shipping on all orders</p>
