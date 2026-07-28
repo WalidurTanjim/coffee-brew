@@ -1,30 +1,43 @@
 "use server"
 
+import authOptions from "@/lib/authOptions"
 import collections from "@/lib/collections"
 import dbConnect from "@/lib/dbConnect"
+import { getServerSession } from "next-auth"
+import { revalidatePath } from "next/cache"
 
 // ConfirmOrder
 export const ConfirmOrder = async(payload) => {
-     // console.log('Confirm order payload:', payload, idempotencyKey)
-     
-     if (!payload || !payload.user?.email) {
-          return {
-               success: false,
-               message: "Valid payload with user identification is required.",
-          };
-     }
+     try {
+          // console.log('Confirm order payload:', payload, idempotencyKey)
+          const session = await getServerSession(authOptions);
+          const userEmail = session?.user?.email;
+          // console.log("Server session:", session, userEmail);
 
-     const { idempotencyKey } = payload || {};
+          if (!userEmail) {
+               return {
+                    success: false,
+                    message: "Unauthorized! Please login to place an order.",
+               };
+          }
+          
+          if (!payload || !payload.user?.email) {
+               return {
+                    success: false,
+                    message: "Valid payload with user identification is required.",
+               };
+          }
 
-     const newOrder = {
-          ...payload,
-          created_at: new Date(),
-          updated_at: new Date()
-     }
+          if (payload.user.email !== userEmail) {
+               return {
+                    success: false,
+                    message: "Unauthorized request. User identity mismatch.",
+               };
+          }
 
-     try{
           const orderCollection = dbConnect(collections.ORDER);
 
+          const { idempotencyKey } = payload || {};
           if(idempotencyKey) {
                const isExist = await orderCollection.findOne({ idempotencyKey });
 
@@ -36,19 +49,33 @@ export const ConfirmOrder = async(payload) => {
                }
           }
 
-          const result = await orderCollection.insertOne(payload);
+          const newOrder = {
+               ...payload,
+               created_at: new Date(),
+               updated_at: new Date()
+          }
+
+          const result = await orderCollection.insertOne(newOrder);
           // console.log("Order result from action:", result);
 
           if(Boolean(result?.acknowledged)) {
+               // clear cart after order successfully
+               const query = { email: userEmail };
+               const cartCollection = dbConnect(collections.CART);
+               const cartDeleteResult = await cartCollection.deleteMany(query);
+               // console.log("CartDeleteResult by email:", cartDeleteResult);
+               revalidatePath('/checkout')
+
                return {
                     success: true,
                     message: "Order places successfully. Please wait to confirm",
-                    orderId: result?.insertedId.toString()
+                    orderId: result?.insertedId.toString(),
+                    cartCleared: Boolean(cartDeleteResult?.acknowledged)
                }
           }else {
                return {
                     success: false,
-                    message: "Failed to create order"
+                    message: "Failed to create order. Please try again."
                }
           }
      }catch(err) {

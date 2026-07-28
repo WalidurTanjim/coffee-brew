@@ -193,9 +193,13 @@ const Checkout = ({ cartItems }) => {
                               </div>
                               </div>
 
+                              <div>
+                                   { error ? <p className="text-sm text-red-600">{error}</p> : ''}
+                              </div>
+
                               {/* Confirm Order Button */}
                               <div className="pt-4">
-                                   <button type="submit" className="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 px-6 rounded-md transition duration-150 text-sm shadow-sm">Confirm Order</button>
+                                   <button type="submit" disabled={loading || cartItemsState.length == 0} className={`w-full text-white font-medium py-3 px-6 rounded-md transition duration-150 text-sm shadow-sm ${loading || cartItemsState.length == 0 ? 'bg-slate-500 cursor-not-allowed' : 'bg-slate-900 hover:bg-slate-800'}`}>Confirm Order</button>
                               </div>
                          </form>
                     </div>
