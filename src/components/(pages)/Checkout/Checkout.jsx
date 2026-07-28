@@ -1,11 +1,14 @@
 "use client"
 
+import { ConfirmOrder } from "@/actions/server/order";
 import { useSession } from "next-auth/react";
 import { useEffect, useMemo, useState } from "react";
+import Swal from "sweetalert2";
 
 const Checkout = ({ cartItems }) => {
      const initialItems = cartItems?.cartItems || [];
      const [cartItemsState, setCartItemsState] = useState(initialItems);
+     const [idempotencyKey] = useState(() => crypto.randomUUID());
      const [error, setError] = useState('');
      const [loading, setLoading] = useState(false);
 
@@ -35,11 +38,82 @@ const Checkout = ({ cartItems }) => {
      // handleConfirmOrder
      const handleConfirmOrder = async(e) => {
           e.preventDefault();
+          setError('');
+
+          if(cartItemsState.length === 0) {
+               setError("Your cart is empty");
+               return;
+          }
+
+          const form = e.target;
+          const phone = form.phone.value.trim();
+          const address = form.address.value.trim();
+          const extraNote = form.extraNote.value.trim();
+
+          if (!phone || !address) {
+               setError('Please fill in all required fields.');
+               return;
+          }
+
+          // Complete Order Payload Object
+          const payload = {
+               user: {
+                    name: userName || "Guest",
+                    email: userEmail || "N/A",
+               },
+               shippingInfo: {
+                    phone,
+                    address,
+                    extraNote,
+               },
+               items: cartItemsState.map((item) => ({
+                    productId: item?._id,
+                    name: item?.coffeeDetails?.name || "Coffee Product",
+                    image: item?.coffeeDetails?.image || "",
+                    weight: item?.weight || "N/A",
+                    quantity: item?.quantity || 1,
+                    price: item?.price || 0,
+                    totalItemPrice: (item?.price || 0) * (item?.quantity || 0),
+               })),
+               summary: {
+                    totalItems,
+                    subtotal: totalPrice,
+                    deliveryCharge,
+                    grandTotal,
+               },
+               orderDate: new Date().toISOString(),
+               status: "Pending",
+               idempotencyKey
+          };
+
+          // console.log("Constructed Order Object:", payload);
 
           try{
+               setLoading(true);
 
+               const result = await ConfirmOrder(payload);
+               // console.log(result);
+
+               if(result?.success && result?.orderId) {
+                    Swal.fire({
+                         title: "Done",
+                         text: result?.message,
+                         icon: "success"
+                    })
+               }
+
+               if(!result?.success) {
+                    Swal.fire({
+                         title: "Sorry",
+                         text: result?.message,
+                         icon: "error"
+                    })
+               }
           }catch(err) {
                console.error(err);
+               setError('Failed to process order. Please try again.');
+          }finally {
+               setLoading(false);
           }
      }
      
@@ -86,6 +160,7 @@ const Checkout = ({ cartItems }) => {
                                    </label>
                                    <input
                                    type="tel"
+                                   name="phone"
                                    placeholder="+880 1000 000000"
                                    className="w-full px-3 py-2 border border-slate-300 rounded-md text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800"
                                    />
@@ -98,6 +173,7 @@ const Checkout = ({ cartItems }) => {
                                    </label>
                                    <input
                                    type="text"
+                                   name="address"
                                    placeholder="Street address, house/apartment number, city"
                                    className="w-full px-3 py-2 border border-slate-300 rounded-md text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800"
                                    />
@@ -110,6 +186,7 @@ const Checkout = ({ cartItems }) => {
                                    </label>
                                    <textarea
                                    rows={3}
+                                   name="extraNote"
                                    placeholder="Special instructions for delivery or order notes..."
                                    className="w-full px-3 py-2 border border-slate-300 rounded-md text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 resize-none"
                                    />
