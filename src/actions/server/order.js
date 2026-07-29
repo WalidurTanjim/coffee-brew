@@ -87,3 +87,51 @@ export const ConfirmOrder = async(payload) => {
           };
      }
 }
+
+// GetOrderByEmail
+export const GetOrderByEmail = async () => {
+     try {
+          const session = await getServerSession(authOptions);
+          const userEmail = session?.user?.email;
+
+          if (!userEmail) {
+               return {
+                    success: false,
+                    message: "Unauthorized! Please login to place an order.",
+               };
+          }
+
+          const orderCollection = dbConnect(collections.ORDER);
+          const query = { "user.email": userEmail };
+          const rawResult = await orderCollection.find(query).toArray();
+
+          if (!rawResult || rawResult.length === 0) {
+               return {
+                    success: false,
+                    message: "There is no data to retrieve",
+                    data: [],
+               };
+          }
+
+          // Convert ObjectId to String and sanitize Date objects for Next.js serialization
+          const result = rawResult.map((order) => ({
+               ...order,
+               _id: order._id.toString(),
+               created_at: order.created_at ? new Date(order.created_at).toISOString() : null,
+               updated_at: order.updated_at ? new Date(order.updated_at).toISOString() : null,
+          }));
+
+          return {
+               success: true,
+               message: "Orders retrieved successfully",
+               data: result,
+          };
+     } catch (err) {
+          console.error(err);
+
+          return {
+               success: false,
+               message: err?.message || "Something went wrong while retrieving orders",
+          };
+     }
+};

@@ -19,11 +19,13 @@ export default function SideNavigationUserProfile() {
           { label: "Add Coffee", path: "/dashboard/admin/add-coffee" },
           { label: "My Coffee", path: "/dashboard/admin/my-coffee" },
           { label: "Cart", path: "/dashboard/admin/cart" },
+          { label: "Orders", path: "/dashboard/admin/orders" }
      ];
 
      // userRoutes
      const userRoutes = [
           { label: "Cart", path: "/dashboard/user/cart" },
+          { label: "Orders", path: "/dashboard/user/orders" }
      ];
 
      return (
