@@ -14,7 +14,7 @@ const GoogleSignInButton = () => {
      
      return (
           <div className="mt-4">
-               <button type="button" onClick={handleGoogleSignIn}  className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700 transition-colors">Signin via Google</button>
+               <button type="button" onClick={handleGoogleSignIn} className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-slate-800 hover:bg-slate-700 active:bg-slate-700 focus:bg-slate-700 disabled:bg-slate-500 transition-colors cursor-pointer">Signin via Google</button>
           </div>
      )
 }

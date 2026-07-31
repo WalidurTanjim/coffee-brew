@@ -45,7 +45,7 @@ const SignInButtonNav = () => {
                          </MenuItems>
                     </Menu> : 
                     <Link href={`/auth/signin`}>
-                         <button className="px-5 py-1.5 outline-none border rounded-sm border-gray-500 text-white bg-gray-800 hover:bg-gray-700 active:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition-colors">Sign in</button>
+                         <button className="px-5 py-1.5 outline-none border rounded-sm border-slate-500 text-white bg-slate-800 hover:bg-slate-700 active:bg-slate-700 focus:bg-slate-700 disabled:bg-slate-500 transition-colors cursor-pointer">Sign in</button>
                     </Link>
                }
           </>

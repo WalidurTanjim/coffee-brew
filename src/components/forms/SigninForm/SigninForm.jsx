@@ -73,7 +73,7 @@ const SigninForm = () => {
                {error && <div className='text-xs text-red-500 font-medium'>* {error}</div>}
 
                <div>
-                    <button type="submit" disabled={loading} className={`w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${loading ? 'bg-gray-700 cursor-not-allowed' : 'bg-gray-800 hover:bg-gray-700'}`}>
+                    <button type="submit" disabled={loading} className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-slate-800 hover:bg-slate-700 active:bg-slate-700 focus:bg-slate-700 disabled:bg-slate-500 transition-colors cursor-pointer">
                          {loading ? <ArrowPathIcon className="h-5 w-5 animate-spin" /> : "Sign in"}
                     </button>
                </div>

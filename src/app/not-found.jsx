@@ -48,7 +48,7 @@ const NotFound404 = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                         <Link href="/" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium">
+                         <Link href="/" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 active:bg-slate-700 focus:bg-slate-700 disabled:bg-slate-500 text-white rounded-lg transition-colors font-medium cursor-pointer">
                               <HomeIcon className="h-5 w-5" />Go Home
                          </Link>
 

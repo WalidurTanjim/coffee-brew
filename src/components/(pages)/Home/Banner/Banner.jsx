@@ -14,7 +14,7 @@ const Banner = () => {
 
                          <p className="text-lg md:text-xl lg:text-2xl max-w-2xl mb-4">Discover amazing products at great prices</p>
 
-                         <button className="px-7 py-2 border border-gray-300 rounded-md text-white hover:bg-black/60 hover:ring-2 ring-slate-600 active:bg-transparent">Shop Now</button>
+                         <button className="px-7 py-2 rounded-md text-white bg-slate-800 hover:bg-slate-700 active:bg-slate-700 focus:bg-slate-700 disabled:bg-slate-500 transition-colors font-medium cursor-pointer">Shop Now</button>
                     </div>
                </div>
           </div>

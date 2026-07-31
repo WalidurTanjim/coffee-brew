@@ -30,7 +30,7 @@ const AddToCartTextButton = ({ variant, coffee }) => {
      }
 
      return (
-          <button className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-sm" disabled={variant.stock === 0} onClick={handleAddToCart}>
+          <button className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 active:bg-slate-700 focus:bg-slate-700 disabled:bg-slate-500 text-white rounded-lg transition-colors text-sm cursor-pointer" disabled={variant.stock === 0} onClick={handleAddToCart}>
                <ShoppingCartIcon className="h-4 w-4" />
                Add to Cart
                <Toaster />

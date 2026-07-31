@@ -97,7 +97,7 @@ const CartSection = ({ cartItems }) => {
                               {/* calculation and checkout button section */}
                               <div className="mt-5">
                                    <Link href={`/checkout`}>
-                                        <button disabled={!cartItemsState.length} className={`w-full text-white font-medium py-3 px-6 rounded-md transition duration-150 text-sm shadow-sm ${cartItemsState.length ? 'bg-slate-900 hover:bg-slate-800' : 'bg-slate-500 cursor-not-allowed'}`}>Proceed to Checkout</button>
+                                        <button disabled={!cartItemsState.length} className="w-full text-white font-medium py-3 px-6 rounded-md transition-colors text-sm shadow-sm bg-slate-800 hover:bg-slate-700 active:bg-slate-700 focus:bg-slate-700 disabled:bg-slate-500 cursor-pointer disabled:cursor-not-allowed">Proceed to Checkout</button>
                                    </Link>
                                    
                                    <div className="mt-3 text-center">

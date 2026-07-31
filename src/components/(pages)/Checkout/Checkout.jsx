@@ -199,7 +199,7 @@ const Checkout = ({ cartItems }) => {
 
                               {/* Confirm Order Button */}
                               <div className="pt-4">
-                                   <button type="submit" disabled={loading || cartItemsState.length == 0} className={`w-full text-white font-medium py-3 px-6 rounded-md transition duration-150 text-sm shadow-sm ${loading || cartItemsState.length == 0 ? 'bg-slate-500 cursor-not-allowed' : 'bg-slate-900 hover:bg-slate-800'}`}>Confirm Order</button>
+                                   <button type="submit" disabled={loading || cartItemsState.length == 0} className="w-full text-white font-medium py-3 px-6 rounded-md transition-colors text-sm shadow-sm bg-slate-800 hover:bg-slate-700 active:bg-slate-700 focus:bg-slate-700 disabled:bg-slate-500 cursor-pointer disabled:cursor-not-allowed">Confirm Order</button>
                               </div>
                          </form>
                     </div>

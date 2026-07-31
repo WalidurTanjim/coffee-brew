@@ -97,3 +97,100 @@ export const SignInUser = async(payload) => {
           throw new Error(err.message || "Authentication failed");
      }
 }
+
+// Get All Users (Admin)
+export const getAllUsers = async () => {
+     try {
+          const { getServerSession } = await import("next-auth");
+          const authOptions = (await import("@/lib/authOptions")).default;
+          const session = await getServerSession(authOptions);
+
+          if (!session || session?.user?.role !== "admin") {
+               return { success: false, message: "Unauthorized access", users: [] };
+          }
+
+          const usersCollection = dbConnect(collections.USERS);
+          const rawUsers = await usersCollection.find({}, { projection: { password: 0 } }).toArray();
+
+          const users = rawUsers.map((u) => ({
+               ...u,
+               _id: u._id.toString(),
+               created_at: u.created_at ? new Date(u.created_at).toISOString() : null,
+               updated_at: u.updated_at ? new Date(u.updated_at).toISOString() : null,
+          }));
+
+          return { success: true, users };
+     } catch (err) {
+          console.error("getAllUsers error:", err);
+          return { success: false, message: err?.message || "Failed to fetch users", users: [] };
+     }
+};
+
+// Update User Role (Admin)
+export const updateUserRole = async (userId, newRole) => {
+     try {
+          const { getServerSession } = await import("next-auth");
+          const authOptions = (await import("@/lib/authOptions")).default;
+          const session = await getServerSession(authOptions);
+          const { ObjectId } = await import("mongodb");
+          const { revalidatePath } = await import("next/cache");
+
+          if (!session || session?.user?.role !== "admin") {
+               return { success: false, message: "Unauthorized access" };
+          }
+
+          if (!userId || !ObjectId.isValid(userId)) {
+               return { success: false, message: "Invalid User ID" };
+          }
+
+          const usersCollection = dbConnect(collections.USERS);
+          const result = await usersCollection.updateOne(
+               { _id: new ObjectId(userId) },
+               { $set: { role: newRole, updated_at: new Date() } }
+          );
+
+          if (result.modifiedCount > 0) {
+               revalidatePath("/dashboard/admin/users");
+               revalidatePath("/dashboard/admin");
+               return { success: true, message: `User role updated to ${newRole}` };
+          } else {
+               return { success: false, message: "Role not updated" };
+          }
+     } catch (err) {
+          console.error("updateUserRole error:", err);
+          return { success: false, message: err?.message || "Failed to update user role" };
+     }
+};
+
+// Delete User (Admin)
+export const deleteUser = async (userId) => {
+     try {
+          const { getServerSession } = await import("next-auth");
+          const authOptions = (await import("@/lib/authOptions")).default;
+          const session = await getServerSession(authOptions);
+          const { ObjectId } = await import("mongodb");
+          const { revalidatePath } = await import("next/cache");
+
+          if (!session || session?.user?.role !== "admin") {
+               return { success: false, message: "Unauthorized access" };
+          }
+
+          if (!userId || !ObjectId.isValid(userId)) {
+               return { success: false, message: "Invalid User ID" };
+          }
+
+          const usersCollection = dbConnect(collections.USERS);
+          const result = await usersCollection.deleteOne({ _id: new ObjectId(userId) });
+
+          if (result.deletedCount > 0) {
+               revalidatePath("/dashboard/admin/users");
+               revalidatePath("/dashboard/admin");
+               return { success: true, message: "User deleted successfully" };
+          } else {
+               return { success: false, message: "User not found" };
+          }
+     } catch (err) {
+          console.error("deleteUser error:", err);
+          return { success: false, message: err?.message || "Failed to delete user" };
+     }
+};

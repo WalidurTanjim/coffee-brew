@@ -96,7 +96,7 @@ const CoffeeCard = ({ coffee }) => {
                                    </Link>
 
                                    {/* Add to Cart Button */}
-                                   <button className="p-2 text-white bg-gray-800 hover:bg-gray-700 rounded-full transition-colors" aria-label="Add to cart"><ShoppingBagIcon className="h-5 w-5" /></button>
+                                   <button className="p-2 text-white bg-slate-800 hover:bg-slate-700 active:bg-slate-700 focus:bg-slate-700 disabled:bg-slate-500 rounded-full transition-colors cursor-pointer" aria-label="Add to cart"><ShoppingBagIcon className="h-5 w-5" /></button>
                               </div>
                          </div>
                     </div>
